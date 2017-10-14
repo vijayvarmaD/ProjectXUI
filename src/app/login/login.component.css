@@ -1,0 +1,27 @@
+.centerDiv {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 100px;
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 500px;
+}
+
+.card-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.card {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.radioFont {
+    font-size: 12px;
+}
+
