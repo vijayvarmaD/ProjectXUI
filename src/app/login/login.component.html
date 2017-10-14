@@ -4,26 +4,27 @@
           <strong>Sign In</strong>
         </div>
         <div class="card-body">
-            <form>
+            <form name="form" (ngSubmit)="login()" novalidate>
                 <div class="form-group">
                   <label for="phoneNo">Phone</label>
-                  <input class="form-control" id="phoneNo" placeholder="Enter Phone Number">
+                  <input type="text" class="form-control" name="phoneNo" [(ngModel)]="model.phoneNo" #phoneNo="ngModel" placeholder="Enter Phone Number" required />
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="Password">
+                  <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="Password" required />
                 </div>
                 <div class="form-group radioFont">
-                    <md-radio-group>
-                        <md-radio-button value="1">Customer</md-radio-button>
+                    <md-radio-group name="role" [(ngModel)]="model.role"  #role="ngModel">
+                        <md-radio-button value="CUSTOMER">Customer</md-radio-button>
                         &nbsp;
-                        <md-radio-button value="2">Vendor</md-radio-button>
+                        <md-radio-button value="VENDOR">Vendor</md-radio-button>
                         &nbsp;
-                        <md-radio-button value="3">DeliveryPerson</md-radio-button>
+                        <md-radio-button value="DELIVERY">DeliveryPerson</md-radio-button>
                     </md-radio-group>
                 </div>
-                
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <button type="submit" [disabled]="loading" class="btn btn-primary">Login</button>                    
+                </div>
               </form>
         </div>
         <div class="card-footer text-muted">
