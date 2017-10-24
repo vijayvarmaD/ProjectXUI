@@ -19,3 +19,4 @@ export class HomeComponent implements OnInit {
             .subscribe(customerProducts => { this.customerProducts = customerProducts; });
     }
 }
+        

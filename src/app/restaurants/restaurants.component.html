@@ -1,17 +1,18 @@
 <md-tab-group>
     <md-tab label="Indian">
         <div class="overflow-control">
-            <div class="card-deck">
-                <div class="col-sm-3">
+            <div class="card-deck" >
+                <div class="col-sm-3" *ngFor="let restaurant of restaurantsList">
                     <div class="card bg-light mb-3">
                         <div class="card-body">
-                            <h4 class="card-title">Paradise</h4>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h4 class="card-title">{{restaurant.name}}</h4>
+                            <p class="card-text">{{restaurant.address}}</p>
+                            <p class="card-text">{{restaurant.city}}</p>
+                            <a href="#" class="btn btn-primary">Menu</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <!-- <div class="col-sm-3">
                     <div class="card bg-light mb-3">
                         <div class="card-body">
                             <h4 class="card-title">Bawarchi</h4>
@@ -82,7 +83,7 @@
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </md-tab>

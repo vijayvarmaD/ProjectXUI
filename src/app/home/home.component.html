@@ -4,7 +4,8 @@
     <div>
         Products from secure api end point:
         <ul>
-            <li *ngFor="let product of customerProducts">{{product.vendorName}} {{product.vendorProductsMenu.name}}</li>
+            <li *ngFor="let product of customerProducts">{{product.vendorName}} </li>
+
         </ul>
     </div>
     <p><a [routerLink]="['/login']">Logout</a></p>

@@ -17,6 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './_guards/auth.guard';
 import { AuthenticationService } from './_services/authentication.service';
 import { ProductsService } from './_services/products.service';
+import { ViewsService } from './_services/views.service';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { ProductsService } from './_services/products.service';
     HttpModule,
     FormsModule
   ],
-  providers: [ProductsService, AuthenticationService, AuthGuard],
+  providers: [ProductsService, AuthenticationService, AuthGuard, ViewsService],
   bootstrap: [
     AppComponent,
     RestaurantsComponent,
