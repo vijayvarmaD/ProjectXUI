@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../_services/authentication.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
     templateUrl: './login.component.html',
@@ -9,13 +10,14 @@ import { AuthenticationService } from '../_services/authentication.service';
 })
 
 export class LoginComponent implements OnInit {
-  model: any = {};
+  model: any = { 'role': 'CUSTOMER'};
   loading = false;
   error = '';
 
   constructor(
       private router: Router,
-      private authenticationService: AuthenticationService) { }
+      private authenticationService: AuthenticationService
+    ) { }
 
   ngOnInit() {
       // reset login status
@@ -26,9 +28,19 @@ export class LoginComponent implements OnInit {
       this.loading = true;
       this.authenticationService.login(this.model.phoneNo, this.model.password, this.model.role)
           .subscribe(result => {
-              if (result === true) {
+              if (result.success === true) {
+                  if (result.role === 'VENDOR') {
+                    NavbarComponent.updateUserStatus.next(true);
+                    this.router.navigate(['/vendor/home']);
+                  } else if (result.role === 'CUSTOMER') {
+                    NavbarComponent.updateUserStatus.next(true);
+                    this.router.navigate(['/customer/home']);
+                  } else if (result.role === 'DELIVERY') {
+                    NavbarComponent.updateUserStatus.next(true);
+                    this.router.navigate(['/delivery/home']);
+                  }
                   // login successful
-                  this.router.navigate(['/home']);
+                //   this.router.navigate(['/home']);
               } else {
                   // login failed
                   this.error = 'Username or password is incorrect';

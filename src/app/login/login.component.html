@@ -1,4 +1,4 @@
-<div class="centerDiv">
+<!-- <div class="centerDiv">
     <div class="card text-center">
         <div class="card-header">
           <strong>Sign In</strong>
@@ -23,7 +23,7 @@
                     </md-radio-group>
                 </div>
                 <div class="form-group">
-                    <button type="submit" [disabled]="loading" class="btn btn-primary">Login</button>                    
+                    <button type="submit" [disabled]="loading" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>                    
                 </div>
               </form>
         </div>
@@ -31,4 +31,54 @@
             Don't have an account?<a href="/signup"> Sign Up Here</a>
         </div>
       </div>
+</div> -->
+
+<div class="centerDiv">
+    <div class="container">
+        <md-card class="example-card text-center">
+            <md-card-header>
+                <md-card-title><strong>Sign In</strong></md-card-title>
+            </md-card-header>
+            <md-card-content>
+            <form name="form" (ngSubmit)="login()" novalidate>                    
+                <div class="form-group">
+                    <md-form-field class="formField">
+                        <input mdInput placeholder="Phone" name="phoneNo" [(ngModel)]="model.phoneNo" #phoneNo="ngModel" required>
+                    </md-form-field>
+                </div>
+                <div class="form-group">           
+                    <md-form-field class="formField">
+                        <input mdInput placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" required>
+                    </md-form-field>
+                </div>           
+                <div class="form-group radioFont">
+                    <md-radio-group name="role" [(ngModel)]="model.role" #role="ngModel">
+                        <md-radio-button value="CUSTOMER" mdTooltip="Customer">
+                            <i class="material-icons">account_circle</i>
+                        </md-radio-button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <md-radio-button value="VENDOR" mdTooltip="Vendor">
+                            <i class="material-icons">store_mall_directory</i>
+                        </md-radio-button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <md-radio-button value="DELIVERY" mdTooltip="Delivery">
+                            <i class="material-icons">motorcycle</i>
+                        </md-radio-button>
+                    </md-radio-group>
+                </div>
+                <div class="form-group">
+                    <button md-raised-button type="submit" [disabled]="loading" color="primary">Login</button>
+                </div>
+              </form>              
+            </md-card-content>
+            <md-card-footer>
+                <div class="text-muted">
+                    Don't have an account? <a href="/signup">Sign Up</a>
+                </div>
+                <div>
+                    <br>
+                </div>
+            </md-card-footer>
+        </md-card>
+    </div>
 </div>

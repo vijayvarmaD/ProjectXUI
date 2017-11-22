@@ -5,8 +5,12 @@
         Products from secure api end point:
         <ul>
             <li *ngFor="let product of customerProducts">{{product.vendorName}} </li>
-
         </ul>
     </div>
-    <p><a [routerLink]="['/login']">Logout</a></p>
+    <p><a [routerLink]="['/login']"><i class="fa fa-sign-out" aria-hidden="true"></i></a></p>
+
+    <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+    <button type="button" class="btn btn-success btn-s" 
+        (click)="uploader.uploadAll()" 
+        [disabled]="!uploader.getNotUploadedItems().length">Upload with ng-2 file uploader</button>
 </div>

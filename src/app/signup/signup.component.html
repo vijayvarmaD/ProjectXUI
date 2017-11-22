@@ -1,0 +1,79 @@
+<div class="centerDiv">
+    <div class="container">
+        <md-card class="example-card  text-center">
+            <md-card-header>
+                <md-card-title>
+                        <md-card-title><strong>Sign Up</strong></md-card-title>
+                </md-card-title>
+            </md-card-header>
+            <md-card-content>
+                    <form name="example-form">
+                    <div class="form-group">                            
+                        <md-form-field class="formField">
+                            <input type="text" placeholder="User Role" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
+                            <md-autocomplete #auto="mdAutocomplete">
+                                <md-option *ngFor="let option of options" [value]="option">
+                                    {{ option }}
+                                </md-option>
+                            </md-autocomplete>
+                        </md-form-field>
+                    </div>
+                    
+                    </form>
+                <form name="form">
+                    <div class="form-group">
+                        <md-form-field class="formField">
+                            <input mdInput placeholder="Name" name="name">
+                        </md-form-field>
+                    </div>
+                    <div class="form-group">
+                        <md-form-field class="formField">
+                            <input mdInput placeholder="Password" [type]="hide ? 'password' : 'text'">
+                            <md-icon mdSuffix class="iconSpecialAlign" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</md-icon>
+                        </md-form-field>
+                    </div>
+                    <div class="form-group">
+                        <md-form-field class="formField">
+                            <input mdInput placeholder="Address" name="address">
+                        </md-form-field>
+                    </div>
+
+                    <div class="form-group">
+
+                        <md-form-field class="formField">
+                            <input mdInput type="number" placeholder="Phone" name="phone">
+                        </md-form-field>
+                    </div>
+                    <div class="form-group">
+                        <md-form-field class="formField">
+                            <input mdInput placeholder="City" name="city">
+                        </md-form-field>
+                    </div>
+                </form>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
+
+
+
+
+
+<!-- <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>Shiba Inu</md-card-title>
+    <md-card-subtitle>Dog Breed</md-card-subtitle>
+</md-card-header>
+<img md-card-image src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu">
+<md-card-content>
+    <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
+        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+    </p>
+</md-card-content>
+<md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+</md-card-actions> -->
+
+  

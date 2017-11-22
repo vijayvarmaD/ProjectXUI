@@ -1,0 +1,42 @@
+<div class="col-sm-10 mainDiv">
+    <!-- This is Single card menu -->
+
+    <!-- <div class="card mb-3 menuCard text-center bg-light" style="height: 25rem;"> -->
+        <!-- <div class="card-header">Menu</div>
+        <div class="card-body">
+            <div class="items" *ngFor="let item of vendorData">
+                <div class="incrementorDiv"> -->
+                    <!-- <h4 class="card-title">{{item.name}}</h4> -->
+                    <!-- <p class="card-text">{{item.name}} &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ${{item.unitPrice}}
+                            &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                        <i class="fa fa-minus-circle fa-md"></i>
+                        <input id="incrementorField" />
+                        <i class="fa fa-plus-circle fa-md"></i>
+                    </p>
+                </div>
+                <p class="card-text">{{item.cuisine}}</p>
+            </div>
+        </div> -->
+    <!-- </div> -->
+
+    <!-- This is Single card menu -->
+
+    <!-- Multiple card Menu -->
+
+    <div class="overflow-control">
+        <div class="card-deck">
+            <div class="col-sm-3" *ngFor="let item of vendorData">
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title">{{item.name}}</h4>
+                        <p class="card-text">{{item.cuisine}}</p>
+                        <p class="card-text">{{item.unitPrice}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multiple card Menu -->
+
+</div>

@@ -10,7 +10,11 @@ import {
   MdProgressBarModule,
   MdChipsModule,
   MdTabsModule,
-  MdRadioModule
+  MdRadioModule,
+  MdFormFieldModule,
+  MdInputModule,
+  MdTooltipModule,
+  MdAutocompleteModule
 } from '@angular/material';
 
 @NgModule({
@@ -24,7 +28,11 @@ import {
     MdProgressBarModule,
     MdChipsModule,
     MdTabsModule,
-    MdRadioModule
+    MdRadioModule,
+    MdFormFieldModule,
+    MdInputModule,
+    MdTooltipModule,
+    MdAutocompleteModule
   ],
   exports: [
     MdButtonModule,
@@ -36,7 +44,11 @@ import {
     MdProgressBarModule,
     MdChipsModule,
     MdTabsModule,
-    MdRadioModule
+    MdRadioModule,
+    MdFormFieldModule,
+    MdInputModule,
+    MdTooltipModule,
+    MdAutocompleteModule
   ]
 })
 export class MaterialModule {}

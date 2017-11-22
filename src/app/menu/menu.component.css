@@ -1,0 +1,39 @@
+/* .menuCard {
+    top: 25px;
+}
+
+.mainDiv {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    
+}
+
+.card {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+#incrementorField {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    max-width: 40px;
+}
+
+input {
+    text-align: center;
+} */
+
+.card {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    min-width: 150px;
+    max-height: 300px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.30), 0 8px 6px rgba(0,0,0,0.22);
+    
+  }
+
+  .overflow-control {
+    overflow-x: hidden;
+  }

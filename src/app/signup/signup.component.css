@@ -1,0 +1,29 @@
+
+
+.material-icons {
+    font-size: 30px;
+    vertical-align: middle;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.iconSpecialAlign {
+  vertical-align: bottom;
+  font-size: 24px;
+}
+
+.formField {
+  width: 75%;
+}
+
+.centerDiv {
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  padding-top: 50px;
+  margin-left: auto; 
+  margin-right: auto; 
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
