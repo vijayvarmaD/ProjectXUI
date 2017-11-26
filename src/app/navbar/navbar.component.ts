@@ -41,5 +41,4 @@ import { Subject } from 'rxjs/Subject';
     ngOnInit() {
 
     }
-
   }

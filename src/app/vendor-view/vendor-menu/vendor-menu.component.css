@@ -1,0 +1,96 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+  /* .centerDiv {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    padding-top: 50px;
+    margin-left: auto; 
+    margin-right: auto; 
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.centerDiv {
+display: inline-block;
+position: relative;
+width: 80%;
+padding-top: 30px;
+padding-bottom: 30px;
+margin-left: 10%; 
+margin-right: 10%; 
+background-size: contain;
+}
+/* 
+.table-container {
+  max-width: 100px;
+} */
+
+@media only screen and (max-width: 400px) {
+  .example-container {
+    max-width: 320px;
+  }
+  /* .mat-table { 
+    max-width: 300px;
+  } */
+  .centerDiv {
+    /* max-width: 100%; */
+    margin-left: 10%; 
+    margin-right: 10%;
+    width: 80%;
+  }
+  .smallText {
+    font-size: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 349px) {
+  .example-container {
+    max-width: 100vw;
+  }
+  /* .mat-table { 
+    max-width: 300px;
+  } */
+  .centerDiv {
+    max-width: 100vw;
+    margin-left: 0; 
+    margin-right: 0;
+    width: 100%;
+  }
+  .smallText {
+    font-size: 10px !important;
+  }
+  .material-icons {
+    font-size: 15px !important;
+  }
+  .fa {
+    font-size: 10px !important;
+  }
+}
+
+.greenIconColor  {
+  font-size: 22px;
+  vertical-align: middle;
+  color: green;
+}
+
+.redIconColor {
+  font-size: 22px;
+  vertical-align: middle;
+  color: red;
+}
+
+.fa {
+  font-size: 13px;
+}

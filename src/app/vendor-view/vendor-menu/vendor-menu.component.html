@@ -1,0 +1,44 @@
+<div class="centerDiv">
+    <div class="table-container">
+        <div class="example-container mat-elevation-z8 text-center">
+            <md-table #table [dataSource]="dataSource">
+                <ng-container mdColumnDef="availability">
+                    <md-header-cell *mdHeaderCellDef class="smallText"> Availability </md-header-cell>
+                    <md-cell *mdCellDef="let menuData" class="smallText">
+                        <i class="material-icons greenIconColor" *ngIf="menuData.availability">check_circle</i>
+                        <i class="material-icons redIconColor" *ngIf="!menuData.availability">cancel</i>
+                    </md-cell>
+                </ng-container>
+                <ng-container mdColumnDef="name">
+                    <md-header-cell *mdHeaderCellDef class="smallText"> Name </md-header-cell>
+                    <md-cell *mdCellDef="let menuData" class="smallText"> {{menuData.name}} </md-cell>
+                </ng-container>
+                <ng-container mdColumnDef="cuisine">
+                    <md-header-cell *mdHeaderCellDef class="smallText"> Cuisine </md-header-cell>
+                    <md-cell *mdCellDef="let menuData" class="smallText"> {{menuData.cuisine}} </md-cell>
+                </ng-container>
+                <ng-container mdColumnDef="veg">
+                    <md-header-cell *mdHeaderCellDef class="smallText"> Veg </md-header-cell>
+                    <md-cell *mdCellDef="let menuData" class="smallText">
+                        <i class="material-icons greenIconColor" *ngIf="menuData.veg">radio_button_checked</i>
+                        <i class="material-icons redIconColor" *ngIf="!menuData.veg">radio_button_checked</i>
+                    </md-cell>
+                </ng-container>
+                <ng-container mdColumnDef="unitPrice">
+                    <md-header-cell *mdHeaderCellDef class="smallText"> Price </md-header-cell>
+                    <md-cell *mdCellDef="let menuData" class="smallText">
+                        <i class="fa fa-inr" aria-hidden="true"></i> {{menuData.unitPrice}} </md-cell>
+                </ng-container>
+                <ng-container mdColumnDef="ingredients">
+                    <md-header-cell *mdHeaderCellDef class="smallText"> Ingredients </md-header-cell>
+                    <md-cell *mdCellDef="let menuData" class="smallText">
+                        <div *ngFor="let item of menuData.ingredients">
+                            <span class="badge badge-warning badge-pill">{{item}}</span>&nbsp;</div>
+                    </md-cell>
+                </ng-container>
+                <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+                <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+            </md-table>
+        </div>
+    </div>
+</div>

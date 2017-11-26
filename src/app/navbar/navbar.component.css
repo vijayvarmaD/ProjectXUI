@@ -3,3 +3,9 @@
     vertical-align: middle;
     font-size: 24px;
 }
+
+.example-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }

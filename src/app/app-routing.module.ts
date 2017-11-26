@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { VendorViewComponent } from './vendor-view/vendor-view.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { DeliveryViewComponent } from './delivery-view/delivery-view.component';
+import { VendorMenuComponent } from './vendor-view/vendor-menu/vendor-menu.component';
 
 import { AuthGuard } from './_guards/auth.guard';
 
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
   { path: 'menu/:id', component: MenuComponent, canActivate: [AuthGuard] },
   { path: 'vendor/home', component: VendorViewComponent, canActivate: [AuthGuard] },
   { path: 'customer/home', component: CustomerViewComponent, canActivate: [AuthGuard] },
-  { path: 'delivery/home', component: DeliveryViewComponent, canActivate: [AuthGuard] }
+  { path: 'delivery/home', component: DeliveryViewComponent, canActivate: [AuthGuard] },
+  { path: 'vendor/menu', component: VendorMenuComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

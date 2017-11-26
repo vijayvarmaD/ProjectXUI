@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 
 import { AuthenticationService } from './authentication.service';
 import { CustomerProducts } from '../_models/customerProducts';
+import { VendorViewMenu } from '../_models/vendor.menu';
+
 
 @Injectable()
 
@@ -23,5 +25,11 @@ export class ProductsService {
         const options = new RequestOptions({ headers: headers });
         // get products from api
         return this.http.get(this.url + '/Customer/view', options).map((response: Response) => response.json());
+    }
+
+    getVendorMenu(): Observable<VendorViewMenu[]> {
+        const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.get(this.url + '/Vendor/view', options).map((response: Response) => response.json());
     }
 }

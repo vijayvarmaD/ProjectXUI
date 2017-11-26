@@ -3,51 +3,105 @@
         <md-card class="example-card  text-center">
             <md-card-header>
                 <md-card-title>
-                        <md-card-title><strong>Sign Up</strong></md-card-title>
+                    <md-card-title>
+                        <strong>Sign Up</strong>
+                    </md-card-title>
                 </md-card-title>
             </md-card-header>
             <md-card-content>
-                    <form name="example-form">
-                    <div class="form-group">                            
+                <form name="signup-form" (ngSubmit)="signUp()">
+                    <div class="form-group">
+                        <md-select placeholder="User role" [(ngModel)]="model.userRole" name="userRole" (ngModelChange)="optionChanged()" required>
+                            <md-option *ngFor="let option of options" [value]="option.value">
+                                {{ option.viewValue }}
+                            </md-option>
+                        </md-select>                        
+                    </div>
+                    <div class="form-group" *ngIf="model.userRole">
                         <md-form-field class="formField">
-                            <input type="text" placeholder="User Role" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
-                            <md-autocomplete #auto="mdAutocomplete">
-                                <md-option *ngFor="let option of options" [value]="option">
-                                    {{ option }}
-                                </md-option>
-                            </md-autocomplete>
+                            <input mdInput placeholder="Name" [(ngModel)]="model.name" name="name" [formControl]="nameFC">
+                            <md-error *ngIf="nameFC.hasError('required')">
+                                Please enter your name
+                            </md-error>
                         </md-form-field>
                     </div>
-                    
-                    </form>
-                <form name="form">
-                    <div class="form-group">
+                    <div class="form-group" *ngIf="model.userRole">
                         <md-form-field class="formField">
-                            <input mdInput placeholder="Name" name="name">
-                        </md-form-field>
-                    </div>
-                    <div class="form-group">
-                        <md-form-field class="formField">
-                            <input mdInput placeholder="Password" [type]="hide ? 'password' : 'text'">
+                            <input mdInput placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="model.password" name="password" [formControl]="passwordFC">
                             <md-icon mdSuffix class="iconSpecialAlign" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</md-icon>
+                            <md-error *ngIf="passwordFC.hasError('required')">
+                                Please enter your password
+                            </md-error>
                         </md-form-field>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" *ngIf="model.userRole">
                         <md-form-field class="formField">
-                            <input mdInput placeholder="Address" name="address">
+                            <input mdInput placeholder="Address" [(ngModel)]="model.address" name="address" [formControl]="addressFC">
+                            <md-error *ngIf="addressFC.hasError('required')">
+                                Please enter your address
+                            </md-error>
                         </md-form-field>
                     </div>
+                    <div class="form-group" *ngIf="model.userRole">
+                        <md-form-field class="formField">
+                            <input mdInput type="number" placeholder="Phone" [(ngModel)]="model.phone" name="phone" [formControl]="phoneFC">
+                            <md-error *ngIf="phoneFC.hasError('required')">
+                                Please enter your phone number
+                            </md-error>
+                        </md-form-field>
+                    </div>
+                    <div class="form-group" *ngIf="model.userRole">
+                        <md-form-field class="formField">
+                            <input mdInput placeholder="City" [(ngModel)]="model.city" name="city" [formControl]="cityFC">
+                            <md-error *ngIf="cityFC.hasError('required')">
+                                Please enter your city
+                            </md-error>
+                        </md-form-field>
+                    </div>
+                    <div class="form-group" *ngIf="model.userRole == 'VENDOR' || model.userRole == 'DELIVERY'">
+                        <md-form-field class="formField">
+                            <input mdInput type="number" placeholder="OTP" [(ngModel)]="model.otp" name="otp" [formControl]="otpFC">
+                            <md-error *ngIf="otpFC.hasError('required')">
+                                Please enter the otp provided by EATUP
+                            </md-error>
+                        </md-form-field>
+                    </div>
+                    <div class="form-group" *ngIf="model.userRole == 'DELIVERY'">
+                        <md-form-field class="formField">
+                            <input mdInput placeholder="Vehicle No" [(ngModel)]="model.vehicleNo" name="vehicleNo" [formControl]="vehicleFC">
+                            <md-error *ngIf="vehicleFC.hasError('required')">
+                                Please enter your vehicle number
+                            </md-error>
+                            <md-error *ngIf="vehicleFC.hasError('pattern')">
+                                    Please enter a valid Vehicle number - example: KL 78 RT 7654
+                            </md-error>
+                            <md-hint align="start"><strong>example: KL 78 RT 7654</strong> </md-hint>
+                        </md-form-field>
+                    </div>
+                    <div class="form-group" *ngIf="model.userRole">
+                        <button md-raised-button style="background-color:rgb(13, 191, 13)" *ngIf="model.userRole === 'DELIVERY'" type="submit"
+                         [disabled]="
+                         vehicleFC.hasError('required') || vehicleFC.hasError('pattern') || nameFC.hasError('required') || passwordFC.hasError('required') || addressFC.hasError('required') || phoneFC.hasError('required')
+                         || cityFC.hasError('required') || otpFC.hasError('required')
+                         "><strong>Sign Up</strong></button>  
 
-                    <div class="form-group">
+                         <button md-raised-button style="background-color:rgb(13, 191, 13)" *ngIf="model.userRole === 'VENDOR'" type="submit"
+                         [disabled]="
+                         nameFC.hasError('required') || passwordFC.hasError('required') || addressFC.hasError('required') || phoneFC.hasError('required')
+                         || cityFC.hasError('required') || otpFC.hasError('required')
+                         ">Sign Up</button> 
 
-                        <md-form-field class="formField">
-                            <input mdInput type="number" placeholder="Phone" name="phone">
-                        </md-form-field>
+                         <button md-raised-button style="background-color:rgb(13, 191, 13)" *ngIf="model.userRole === 'CUSTOMER'" type="submit"
+                         [disabled]="
+                         nameFC.hasError('required') || passwordFC.hasError('required') || addressFC.hasError('required') || phoneFC.hasError('required')
+                         || cityFC.hasError('required')
+                         ">Sign Up</button>                           
                     </div>
-                    <div class="form-group">
-                        <md-form-field class="formField">
-                            <input mdInput placeholder="City" name="city">
-                        </md-form-field>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="serverError !== ''">
+                        <strong>{{serverError}}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="clearServerErrorVariable()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                 </form>
             </md-card-content>
@@ -59,21 +113,11 @@
 
 
 
-<!-- <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>Shiba Inu</md-card-title>
-    <md-card-subtitle>Dog Breed</md-card-subtitle>
-</md-card-header>
-<img md-card-image src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu">
-<md-card-content>
-    <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-    </p>
-</md-card-content>
-<md-card-actions>
-    <button md-button>LIKE</button>
-    <button md-button>SHARE</button>
-</md-card-actions> -->
-
-  
+<!-- <md-card class="example-card">
+    <img md-card-image src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu">
+    <md-card-content>
+        <p class="card-title">restaurant.name</p>
+        <button class="btn btn-primary" [routerLink]="['/menu', restaurant.name]" activatedRoute>Menu</button>
+    </md-card-content>
+  </md-card>
+   -->

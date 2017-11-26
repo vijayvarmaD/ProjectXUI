@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map';
 
 import { NavbarComponent } from '../navbar/navbar.component';
 
-
 @Injectable()
 
 export class AuthenticationService {
@@ -95,5 +94,66 @@ export class AuthenticationService {
         this.token = null;
         localStorage.removeItem('currentUser');
         NavbarComponent.updateUserStatusLogout.next(true);
+    }
+
+    signUp(model: any): Observable<any> {
+        if (model.userRole === 'CUSTOMER') {
+            const bodyReq = {
+                'name': model.name,
+                'password': model.password,
+                'address': model.address,
+                'phone': model.phone,
+                'city': model.city
+            };
+            return this.http.post(this.url + '/api/accounts/Customer/Signup', bodyReq)
+            .map((response: Response) => {
+                const successCheck = response.json();
+                console.log(successCheck);
+                if (successCheck) {
+                    const resultObject = { success: true };
+                    return resultObject;
+                }
+            });
+        } else if (model.userRole === 'VENDOR') {
+            const bodyReq = {
+                'name': model.name,
+                'password': model.password,
+                'address': model.address,
+                'phone': model.phone,
+                'city': model.city,
+                'userRole': model.userRole,
+                'otp': model.otp
+            };
+            return this.http.post(this.url + '/api/accounts/Vendor/Signup', bodyReq)
+            .map((response: Response) => {
+                const successCheck = response.json();
+                if (successCheck) {
+                    const resultObject = { success: true };
+                    return resultObject;
+                }
+            });
+        } else if (model.userRole === 'DELIVERY') {
+            const bodyReq = {
+                'name': model.name,
+                'password': model.password,
+                'address': model.address,
+                'phone': model.phone,
+                'city': model.city,
+                'userRole': model.userRole,
+                'otp': model.otp,
+                'vehicleNo': model.vehicleNo
+            };
+            return this.http.post(this.url + '/api/accounts/DeliveryPerson/Signup', bodyReq)
+            .map((response: Response) => {
+                const successCheck = response.json();
+                if (successCheck) {
+                    const resultObject = { success: true };
+                    return resultObject;
+                }
+            })
+            .catch((e: any) => {
+                return Observable.of(e);
+            });
+        }
     }
 }

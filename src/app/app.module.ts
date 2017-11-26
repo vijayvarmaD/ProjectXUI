@@ -18,6 +18,7 @@ import { VendorViewComponent } from './vendor-view/vendor-view.component';
 import { DeliveryViewComponent } from './delivery-view/delivery-view.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { SignupComponent } from './signup/signup.component';
+import { VendorMenuComponent } from './vendor-view/vendor-menu/vendor-menu.component';
 
 import { AuthGuard } from './_guards/auth.guard';
 import { AuthenticationService } from './_services/authentication.service';
@@ -36,7 +37,8 @@ import { ViewsService } from './_services/views.service';
     VendorViewComponent,
     DeliveryViewComponent,
     CustomerViewComponent,
-    SignupComponent
+    SignupComponent,
+    VendorMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +52,7 @@ import { ViewsService } from './_services/views.service';
   ],
   providers: [ProductsService, AuthenticationService, AuthGuard, ViewsService],
   bootstrap: [
-    AppComponent,
-    RestaurantsComponent,
-    NavbarComponent,
-    MenuComponent
+    AppComponent
   ]
 })
 export class AppModule { }

@@ -14,7 +14,10 @@ import {
   MdFormFieldModule,
   MdInputModule,
   MdTooltipModule,
-  MdAutocompleteModule
+  MdAutocompleteModule,
+  MdSelectModule,
+  MdOptionModule,
+  MdTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -32,7 +35,10 @@ import {
     MdFormFieldModule,
     MdInputModule,
     MdTooltipModule,
-    MdAutocompleteModule
+    MdAutocompleteModule,
+    MdSelectModule,
+    MdOptionModule,
+    MdTableModule
   ],
   exports: [
     MdButtonModule,
@@ -48,7 +54,10 @@ import {
     MdFormFieldModule,
     MdInputModule,
     MdTooltipModule,
-    MdAutocompleteModule
+    MdAutocompleteModule,
+    MdSelectModule,
+    MdOptionModule,
+    MdTableModule
   ]
 })
 export class MaterialModule {}
