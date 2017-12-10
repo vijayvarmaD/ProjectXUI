@@ -9,3 +9,22 @@
     height: 300px;
     border: 1px solid rgba(0, 0, 0, 0.5);
   }
+
+  .inner-left-addon {
+    position: relative;
+  }
+  
+  .inner-left-addon input {
+    padding-left: 30px;
+  }
+  
+  .inner-left-addon i {
+    position: absolute;
+    left: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+  }
+
+  .drop-icon {
+    font-size: 20px;
+  }

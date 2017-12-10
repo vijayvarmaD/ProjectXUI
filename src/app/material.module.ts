@@ -17,7 +17,11 @@ import {
   MdAutocompleteModule,
   MdSelectModule,
   MdOptionModule,
-  MdTableModule
+  MdTableModule,
+  MdDialogModule,
+  MdSlideToggleModule,
+  MdPaginatorModule,
+  MdSortModule
 } from '@angular/material';
 
 @NgModule({
@@ -38,7 +42,11 @@ import {
     MdAutocompleteModule,
     MdSelectModule,
     MdOptionModule,
-    MdTableModule
+    MdTableModule,
+    MdDialogModule,
+    MdSlideToggleModule,
+    MdPaginatorModule,
+    MdSortModule
   ],
   exports: [
     MdButtonModule,
@@ -57,7 +65,11 @@ import {
     MdAutocompleteModule,
     MdSelectModule,
     MdOptionModule,
-    MdTableModule
+    MdTableModule,
+    MdDialogModule,
+    MdSlideToggleModule,
+    MdPaginatorModule,
+    MdSortModule
   ]
 })
 export class MaterialModule {}

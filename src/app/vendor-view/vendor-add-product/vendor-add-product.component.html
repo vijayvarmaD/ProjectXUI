@@ -1,0 +1,69 @@
+<div class="centerDiv">
+    <div class="container">
+        <md-card class="example-card  text-center">
+            <md-card-header>
+                <md-card-title>
+                    <md-card-title>
+                        <strong>New Item</strong>
+                    </md-card-title>
+                </md-card-title>
+            </md-card-header>
+            <md-card-content>
+                <form name="new-item-form" (ngSubmit)="addItem()">
+                    <div class="form-group">
+                        <md-form-field class="formField">
+                            <input mdInput placeholder="Name" [(ngModel)]="model.name" name="name" [formControl]="nameFC">
+                            <md-error *ngIf="nameFC.hasError('required')">
+                                Please enter your name
+                            </md-error>
+                        </md-form-field>
+                        
+                    </div>
+                    <div class="form-group">
+                        <md-form-field class="formField">
+                            <input mdInput placeholder="Cuisine" [(ngModel)]="model.cuisine" name="cuisine" [formControl]="cuisineFC">
+                            <md-error *ngIf="cuisineFC.hasError('required')">
+                                Please enter the cuisine of the item
+                            </md-error>
+                        </md-form-field>
+                    </div>
+                    <div class="form-group">
+                        <md-form-field class="formField" hintLabel="Enter the ingredients and separate them with a comma">
+                            <input mdInput placeholder="Ingredients" [mdChipInputFor]="chipList" [mdChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                [mdChipInputAddOnBlur]="addOnBlur" (mdChipInputTokenEnd)="add($event)" />
+                        </md-form-field>
+                    </div>
+                    <div class="form-group">
+                        <div class="chipHolder">
+                            <md-chip-list #chipList class="chipPadding">
+                                <md-chip class="chipColor" *ngFor="let ingred of ingredients" [selectable]="selectable" [removable]="removable" (remove)="remove(ingred)">
+                                    {{ingred.name}}
+                                    <md-icon mdChipRemove *ngIf="removable">cancel</md-icon>
+                                </md-chip>
+                            </md-chip-list>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <br>
+                        <md-slide-toggle class="formField slide-style" color="primary" [(ngModel)]="model.veg" name="veg"> Veg</md-slide-toggle>
+                    </div>
+                    <div class="form-group">
+                        <md-form-field class="formField">
+                            <input mdInput placeholder="Unit Price" [(ngModel)]="model.unitPrice" name="unitprice" type="number" [formControl]="unitPriceFC">
+                            <i mdPrefix class="fa fa-inr inr-size" aria-hidden="true">&nbsp;&nbsp;</i>
+                            <md-error *ngIf="unitPriceFC.hasError('required')">
+                                    Please enter the unit price of the item
+                            </md-error>
+                        </md-form-field>
+                    </div>
+                    <div class="form-group">
+                        <button md-raised-button style="background-color:rgb(13, 191, 13)" type="submit"
+                        [disabled]="nameFC.hasError('required') ||
+                        cuisineFC.hasError('required') ||
+                        unitPriceFC.hasError('required')">Add</button>
+                    </div>
+                </form>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

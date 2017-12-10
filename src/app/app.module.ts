@@ -18,7 +18,12 @@ import { VendorViewComponent } from './vendor-view/vendor-view.component';
 import { DeliveryViewComponent } from './delivery-view/delivery-view.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { SignupComponent } from './signup/signup.component';
-import { VendorMenuComponent } from './vendor-view/vendor-menu/vendor-menu.component';
+import {
+  VendorMenuComponent,
+  VendorProductDeleteConfirmDialog,
+  VendorProductEditFormDialog
+} from './vendor-view/vendor-menu/vendor-menu.component';
+import { VendorAddProductComponent } from './vendor-view/vendor-add-product/vendor-add-product.component';
 
 import { AuthGuard } from './_guards/auth.guard';
 import { AuthenticationService } from './_services/authentication.service';
@@ -38,7 +43,10 @@ import { ViewsService } from './_services/views.service';
     DeliveryViewComponent,
     CustomerViewComponent,
     SignupComponent,
-    VendorMenuComponent
+    VendorMenuComponent,
+    VendorAddProductComponent,
+    VendorProductDeleteConfirmDialog,
+    VendorProductEditFormDialog
   ],
   imports: [
     BrowserModule,
@@ -50,6 +58,7 @@ import { ViewsService } from './_services/views.service';
     FormsModule,
     ReactiveFormsModule
   ],
+  entryComponents: [ VendorProductDeleteConfirmDialog, VendorProductEditFormDialog ],
   providers: [ProductsService, AuthenticationService, AuthGuard, ViewsService],
   bootstrap: [
     AppComponent

@@ -22,11 +22,28 @@
     align-items: center;
 } */
 
+
+.example-header {
+  min-height: 64px;
+  display: flex;
+  align-items: baseline;
+  padding: 8px 24px 0;
+  font-size: 14px;
+  justify-content: space-between;
+  background: #faf8f8;
+  justify-content: center;
+}
+
+.searchBox {
+  min-width: 85%;
+  
+}
+
 .centerDiv {
 display: inline-block;
 position: relative;
 width: 80%;
-padding-top: 30px;
+/* padding-top: px; */
 padding-bottom: 30px;
 margin-left: 10%; 
 margin-right: 10%; 
@@ -36,6 +53,10 @@ background-size: contain;
 .table-container {
   max-width: 100px;
 } */
+
+.cursorPointer {
+  cursor: pointer;
+}
 
 @media only screen and (max-width: 400px) {
   .example-container {
@@ -93,4 +114,37 @@ background-size: contain;
 
 .fa {
   font-size: 13px;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.add-icon {
+  font-size: 30px !important;
+  vertical-align: bottom; 
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+@media only screen and (max-width: 509px) {
+  .add-icon {
+    font-size: 20px !important;
+    vertical-align: bottom; 
+  }
+  .material-icons {
+    font-size: 15px !important;
+  }
+}
+
+.removeFocus:focus {
+  outline: none;
+  border: 0;
+}
+
+.md-sort-header-container {
+  display:flex;
+  justify-content:center;
 }

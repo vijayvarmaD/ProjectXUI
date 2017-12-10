@@ -1,0 +1,30 @@
+.inr-size {
+  font-size: 14px !important;
+}
+
+.formField {
+  width: 75%;
+}
+
+.centerDiv {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chipHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chipColor {
+  background-color: indianred;
+}

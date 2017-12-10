@@ -32,4 +32,60 @@ export class ProductsService {
         const options = new RequestOptions({ headers: headers });
         return this.http.get(this.url + '/Vendor/view', options).map((response: Response) => response.json());
     }
+
+    addVendorProduct(model: any, ingredients: any): Observable<any> {
+        const bodyReq = {
+            'name': model.name,
+            'cuisine': model.cuisine,
+            'ingredients': ingredients,
+            'veg': model.veg,
+            'unitPrice': model.unitPrice
+        };
+        const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post(this.url + '/Vendor/addproduct', bodyReq, options)
+            .map((response: Response) => {
+                const successCheck = response.json();
+                if (successCheck) {
+                    const resultObject = { success: true };
+                    return resultObject;
+                }
+            });
+    }
+
+    deleteVendorProduct(_id): Observable<any> {
+        const bodyreq = { 'pId': _id };
+        const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post(this.url + '/Vendor/DeleteProduct', bodyreq, options)
+            .map((response: Response) => {
+                const successCheck = response.json();
+                if (successCheck) {
+                    const resultObject = { success: true };
+                    return resultObject;
+                }
+            });
+    }
+
+    editVendorProduct(editObj): Observable<any> {
+        const bodyreq = {
+            'pId': editObj.pId,
+            'name': editObj.name,
+            'cuisine': editObj.cuisine,
+            'ingredients': editObj.ingredients,
+            'veg': editObj.veg,
+            'unitPrice': editObj.unitPrice,
+            'vendor': editObj.vendor
+        };
+        const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post(this.url + '/Vendor/EditProduct', bodyreq, options)
+            .map((response: Response) => {
+                const successCheck = response.json();
+                if (successCheck) {
+                    const resultObject = { success: true };
+                    return resultObject;
+                }
+            });
+    }
 }

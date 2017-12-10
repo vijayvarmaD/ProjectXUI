@@ -18,11 +18,11 @@ export class SignupComponent implements OnInit {
     serverError = '';
 
     myControl: FormControl = new FormControl();
-      options = [
-        {value: 'CUSTOMER', viewValue: 'Customer'},
-        {value: 'VENDOR', viewValue: 'Vendor'},
-        {value: 'DELIVERY', viewValue: 'Delivery'}
-       ];
+    options = [
+        { value: 'CUSTOMER', viewValue: 'Customer' },
+        { value: 'VENDOR', viewValue: 'Vendor' },
+        { value: 'DELIVERY', viewValue: 'Delivery' }
+    ];
 
     // Form Validation
     nameFC = new FormControl('', [
@@ -60,7 +60,6 @@ export class SignupComponent implements OnInit {
             .subscribe(result => {
                 if (result.success === true) {
                     this.router.navigate(['/login']);
-                    console.log('client - success!!');
                     this.model = null;
 
                 } else {

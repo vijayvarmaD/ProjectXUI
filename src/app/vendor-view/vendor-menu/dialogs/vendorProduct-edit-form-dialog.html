@@ -1,0 +1,55 @@
+<form name="edit-item-form">
+    <div class="form-group">
+        <md-form-field class="formField">
+            <input mdInput placeholder="Name" [(ngModel)]="modelDialog.name" name="name" [formControl]="nameFCD">
+            <md-error *ngIf="nameFCD.hasError('required')">
+                Please enter your name
+            </md-error>
+        </md-form-field>
+        
+    </div>
+    <div class="form-group">
+        <md-form-field class="formField">
+            <input mdInput placeholder="Cuisine" [(ngModel)]="modelDialog.cuisine" name="cuisine" [formControl]="cuisineFCD">
+            <md-error *ngIf="cuisineFCD.hasError('required')">
+                Please enter the cuisine of the item
+            </md-error>
+        </md-form-field>
+    </div>
+    <div class="form-group">
+        <md-form-field class="formField" hintLabel="Enter the ingredients and separate them with a comma">
+            <input mdInput placeholder="Ingredients" [mdChipInputFor]="chipList" [mdChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [mdChipInputAddOnBlur]="addOnBlur" (mdChipInputTokenEnd)="add($event)" />
+        </md-form-field>
+    </div>
+    <div class="form-group">
+        <div class="chipHolder">
+            <md-chip-list #chipList class="chipPadding">
+                <md-chip class="chipColor" *ngFor="let ingred of ingredients" [selectable]="selectable" [removable]="removable" (remove)="remove(ingred)">
+                    {{ingred.name}}
+                    <md-icon mdChipRemove *ngIf="removable">cancel</md-icon>
+                </md-chip>
+            </md-chip-list>
+        </div>
+    </div>
+    <div class="form-group">
+        <br>
+        <md-slide-toggle class="formField slide-style" color="primary" [(ngModel)]="modelDialog.veg" name="veg"> Veg</md-slide-toggle>
+    </div>
+    <div class="form-group">
+        <md-form-field class="formField">
+            <input mdInput placeholder="Unit Price" [(ngModel)]="modelDialog.unitPrice" name="unitprice" type="number" [formControl]="unitPriceFCD">
+            <i mdPrefix class="fa fa-inr inr-size" aria-hidden="true">&nbsp;&nbsp;</i>
+            <md-error *ngIf="unitPriceFCD.hasError('required')">
+                    Please enter the unit price of the item
+            </md-error>
+        </md-form-field>
+    </div>
+    <div class="form-group">
+        <button md-raised-button style="background-color:rgb(13, 191, 13)" 
+        [disabled]="nameFCD.hasError('required') ||
+        cuisineFCD.hasError('required') ||
+        unitPriceFCD.hasError('required')"
+        (click)="onEditForm(modelDialog)" [md-dialog-close]="true">Edit</button>
+    </div>
+</form>

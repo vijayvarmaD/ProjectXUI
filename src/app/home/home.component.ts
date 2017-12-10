@@ -12,21 +12,21 @@ const URL = 'http://localhost:3000/api/products/Vendor/UploadImg';
     styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent implements OnInit {
-    customerProducts: CustomerProducts[] = [];
+export class HomeComponent {
+    // customerProducts: CustomerProducts[] = [];
 
-    constructor(private productsService: ProductsService) {}
+    // constructor(private productsService: ProductsService) {}
 
-    // Upload Image
-    public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'photo' });
+    // // Upload Image
+    // public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'photo' });
 
-    ngOnInit() {
-        // get products from api
-        this.productsService.getproducts()
-            .subscribe(customerProducts => { this.customerProducts = customerProducts; });
-        // uploader
-        this.uploader.onAfterAddingFile = (file) => {
-            file.withCredentials = false;
-        };
-    }
+    // ngOnInit() {
+    //     // get products from api
+    //     this.productsService.getproducts()
+    //         .subscribe(customerProducts => { this.customerProducts = customerProducts; });
+    //     // uploader
+    //     this.uploader.onAfterAddingFile = (file) => {
+    //         file.withCredentials = false;
+    //     };
+    // }
 }
