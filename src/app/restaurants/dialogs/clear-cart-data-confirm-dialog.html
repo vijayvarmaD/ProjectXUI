@@ -1,0 +1,10 @@
+<h1 md-dialog-title><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;Clear cart</h1>
+<br>
+<md-dialog-content align="center">Do you want to change the restaurant?</md-dialog-content>
+<br>
+<br>
+<md-dialog-actions align="center">
+  <button md-button md-dialog-close>No</button>
+  &nbsp;
+  <button md-raised-button color="warn" [md-dialog-close]="true" (click)="onClearCartConfirm()">Yes</button>
+</md-dialog-actions>

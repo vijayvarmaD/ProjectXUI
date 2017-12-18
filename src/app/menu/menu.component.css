@@ -37,3 +37,109 @@ input {
   .overflow-control {
     overflow-x: hidden;
   }
+
+  .menuHeader {
+      padding-top: 15px;
+  }
+
+  .headerImg {
+      max-width: 200px;
+      max-height:150px;
+      padding-left: 20px;
+  }
+
+  .leftDiv {
+      width: 63%;
+      float: left;
+  }
+
+  .rightDiv {
+      width: 33%;
+      float: right;
+  }
+
+  .menuContainer {
+      padding-top: 2%;
+  }
+  .menuCard-agmark {
+      width: 10%;
+    justify-content: center;    
+  }
+
+  .vegIconStyle {
+    font-size: 120%;
+    color: green;
+  }
+  .nonvegIconStyle {
+    font-size: 120%;
+    color: red;
+  }
+  .menuCard-name {
+    width: 40%;
+    justify-content: center;    
+}
+
+.menuCard-counter {
+    width: 3%;  
+}
+
+.menuCard-space {
+    width: 3%;    
+}
+
+.menuCard-cost {
+    width: 10%;
+    justify-content: center;
+}
+
+.menuCard-extraspace {
+    width: 20%;
+    justify-content: center;    
+}
+
+.removeFocus:focus {
+    outline: none;
+    border: 0;
+  }
+
+  .cursorPointer {
+    cursor: pointer;
+  }
+
+  .cartCard-space {
+      width: 3%;
+  }
+
+  .cartCard-name {
+    font-size: 80%;
+    justify-content: center;
+    width: 40%;
+  }
+
+  .cartCard-extraspace {
+    width: 20%;
+    justify-content: center;    
+}
+
+.cartCard-cost {
+    font-size: 80%;
+    width: 10%;
+    justify-content: center;
+}
+
+.cartCard-quantity {
+    font-size: 80%;
+}
+
+.cartCard-counter {
+    width: 3%;
+
+}
+
+.cart-icon {
+    font-size: 90%;
+}
+
+.cart-font {
+    font-size: 80%;
+}

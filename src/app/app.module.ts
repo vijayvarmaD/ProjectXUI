@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FileSelectDirective } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
-import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { RestaurantsComponent, ClearCartDataConfirmDialogComponent } from './restaurants/restaurants.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -46,7 +46,8 @@ import { ViewsService } from './_services/views.service';
     VendorMenuComponent,
     VendorAddProductComponent,
     VendorProductDeleteConfirmDialog,
-    VendorProductEditFormDialog
+    VendorProductEditFormDialog,
+    ClearCartDataConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,7 @@ import { ViewsService } from './_services/views.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  entryComponents: [ VendorProductDeleteConfirmDialog, VendorProductEditFormDialog ],
+  entryComponents: [ VendorProductDeleteConfirmDialog, VendorProductEditFormDialog, ClearCartDataConfirmDialogComponent ],
   providers: [ProductsService, AuthenticationService, AuthGuard, ViewsService],
   bootstrap: [
     AppComponent

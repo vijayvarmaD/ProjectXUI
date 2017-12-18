@@ -1,42 +1,104 @@
-<div class="col-sm-10 mainDiv">
-    <!-- This is Single card menu -->
-
-    <!-- <div class="card mb-3 menuCard text-center bg-light" style="height: 25rem;"> -->
-        <!-- <div class="card-header">Menu</div>
-        <div class="card-body">
-            <div class="items" *ngFor="let item of vendorData">
-                <div class="incrementorDiv"> -->
-                    <!-- <h4 class="card-title">{{item.name}}</h4> -->
-                    <!-- <p class="card-text">{{item.name}} &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ${{item.unitPrice}}
-                            &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                        <i class="fa fa-minus-circle fa-md"></i>
-                        <input id="incrementorField" />
-                        <i class="fa fa-plus-circle fa-md"></i>
-                    </p>
-                </div>
-                <p class="card-text">{{item.cuisine}}</p>
-            </div>
-        </div> -->
-    <!-- </div> -->
-
-    <!-- This is Single card menu -->
-
-    <!-- Multiple card Menu -->
-
-    <div class="overflow-control">
-        <div class="card-deck">
-            <div class="col-sm-3" *ngFor="let item of vendorData">
-                <div class="card bg-light mb-3">
-                    <div class="card-body">
-                        <h4 class="card-title">{{item.name}}</h4>
-                        <p class="card-text">{{item.cuisine}}</p>
-                        <p class="card-text">{{item.unitPrice}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container menuHeader">
+  <md-card>
+    <div class="row">
+      <div>
+        <img class="headerImg" src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu">
+      </div>
+      <div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+      <div>
+        <h3>{{vendorName}}</h3>
+      </div>
     </div>
-
-    <!-- Multiple card Menu -->
-
+  </md-card>
 </div>
+
+<div class="container menuContainer">
+  <md-card class="leftDiv">
+    <md-list>
+      <h3 md-subheader>
+        <strong>Menu</strong>
+      </h3>
+      <md-divider></md-divider>
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item" style="border:none;" *ngFor="let item of vendorData">
+          <div class="row">
+            <div class="col-1 text-center" *ngIf="item.veg">
+              <i class="fa fa-dot-circle-o vegIconStyle" aria-hidden="true"></i>
+            </div>
+            <div class="col-1 nonvegIconStyle text-center" *ngIf="!item.veg">
+              <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+            </div>
+            <div class="col-4">
+              {{item.name}}
+            </div>
+            <div class="col-4">
+              <div class="row text-center">
+                <div class="col-3">
+                  <a class="removeFocus cursorPointer" (click)="removeFromCart(item)">
+                    <i class="material-icons">remove_circle_outline</i>
+                  </a>
+                </div>
+                <div class="col-2">
+                  {{item.quantity}}
+                </div>
+                <div class="col-3">
+                  <a class="removeFocus cursorPointer" (click)="add2Cart(item)">
+                    <i class="material-icons">add_circle_outline</i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-3 text-center">
+              <i class="fa fa-inr" aria-hidden="true"></i> {{item.unitPrice}}
+            </div>
+          </div>
+        </li>
+      </ul>
+    </md-list>
+  </md-card>
+  <md-card class="rightDiv">
+    <md-list>
+      <h3 md-subheader>
+        <strong>Cart</strong>
+      </h3>
+      <md-divider></md-divider>
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item" style="border:none;" *ngFor="let item of carterData">
+          <div class="row cart-font">
+            <div class="col-5">
+              {{item.name}}
+            </div>
+            <div class="col-4 text-center">
+              <div class="row">
+                <div class="col-3">
+                  <a class="removeFocus cursorPointer" (click)="removeFromCart(item)">
+                    <i class="material-icons cart-icon">remove_circle_outline</i>
+                  </a>
+                </div>
+                <div class="col-3">
+                  {{item.quantity}}
+                </div>
+                <div class="col-3">
+                  <a class="removeFocus cursorPointer" (click)="add2Cart(item)">
+                    <i class="material-icons cart-icon">add_circle_outline</i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <i class="fa fa-inr" aria-hidden="true"></i> {{item.unitPrice}}
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="cartCard-cost">
+        <i class="fa fa-inr" aria-hidden="true"></i> {{this.cartAmount}}
+      </div>
+    </md-list>
+  </md-card>
+</div>
+

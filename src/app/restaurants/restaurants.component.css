@@ -1,12 +1,41 @@
 .card {
-    margin-top: 20px;
+    /* margin-top: 20px;
     margin-bottom: 10px;
     min-width: 150px;
-    max-height: 300px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.30), 0 8px 6px rgba(0,0,0,0.22);
+    max-height: 300px; */
+    /* box-shadow: 0 10px 20px rgba(0,0,0,0.30), 0 8px 6px rgba(0,0,0,0.22); */
     
   }
 
   .overflow-control {
     overflow-x: hidden;
   }
+  /* .example-card {
+    width: 400px;
+  } */
+  
+  .example-header-image {
+    /* background-image: url('../../assets/Chicken-Biryani_jpeg.jpg'); */
+    background-size: cover;
+  }
+
+  .card-container {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .material-icons {
+    vertical-align: middle;
+    font-size: 24px;
+}
+
+.mdButtonAdjustLeft {
+  padding-left: 15px;
+}
+
+.mdButtonAdjustRight {
+  padding-right: 15px;
+}
+

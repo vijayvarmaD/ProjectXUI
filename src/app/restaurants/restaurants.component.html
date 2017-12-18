@@ -1,15 +1,28 @@
 <md-tab-group>
     <md-tab label="Indian">
         <div class="overflow-control">
-            <div class="card-deck" >
+            <div class="card-deck">
                 <div class="col-sm-3" *ngFor="let restaurant of restaurantsList">
-                    <div class="card bg-light mb-3">
-                        <div class="card-body">
-                            <h4 class="card-title">{{restaurant.name}}</h4>
-                            <p class="card-text">{{restaurant.address}}</p>
-                            <p class="card-text">{{restaurant.city}}</p>
-                            <button class="btn btn-primary" [routerLink]="['/menu', restaurant.name]" activatedRoute>Menu</button>
-                        </div>
+                    <div class="card-container">
+                        <md-card class="example-card">
+                            <img md-card-image src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu">
+                            <md-card-content>
+                                <md-card-title>{{restaurant.name}}</md-card-title>
+                                <md-card-subtitle>{{restaurant.city}}</md-card-subtitle>
+                            </md-card-content>
+                            <hr/>
+                            <md-card-actions>
+                                <div class="mdButtonAdjustLeft">
+                                    <button md-raised-button (click)="restaurantMenuClick(restaurant.name, restaurant._id)" class="float-left">
+                                        <i class="material-icons">restaurant_menu</i> Menu</button>
+                                </div>                       
+                                <div class="mdButtonAdjustRight">
+                                    <button md-raised-button class="float-right">
+                                        <i class="fa fa-star" style="color:gold; font-size: 140%;" aria-hidden="true"></i> 4.5</button>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </md-card-actions>
+                        </md-card>
                     </div>
                 </div>
             </div>
@@ -104,8 +117,46 @@
     </md-tab>
     <md-tab label="Chinese">
     </md-tab>
-    <md-tab label="Italian"></md-tab>
-    <md-tab label="Mexican"></md-tab>
+    <md-tab label="Italian">
+    </md-tab>
+    <md-tab label="Mexican">
+        <md-card>Simple card</md-card>
+
+    </md-tab>
 </md-tab-group>
 
+<!-- <div class="card-container">
+        <md-card class="example-card">
+                <img md-card-image src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu">
+                <md-card-content>
+                  <p>
+                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.
+                  </p>
+                </md-card-content>
+                <md-card-actions>
+                  <button md-button>LIKE</button>
+                  <button md-button>SHARE</button>
+                </md-card-actions>
+              </md-card>
+</div> -->
 
+<!-- <div class="md-padding" layout="row" layout-wrap>
+        <div flex="33" *ngFor="let restaurant of restaurantsList">
+                <md-card class="example-card">
+                        <img md-card-image src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu">
+                        <md-card-content>
+                          <p>
+                            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                            bred for hunting.
+                          </p>
+                        </md-card-content>
+                        <md-card-actions>
+                          <button md-button>LIKE</button>
+                          <button md-button>SHARE</button>
+                        </md-card-actions>
+                      </md-card>
+        </div>
+    </div> -->

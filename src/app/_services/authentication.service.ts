@@ -33,6 +33,9 @@ export class AuthenticationService {
                     // store phone and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify({ phone: phoneNo, token: token, role: role }));
 
+                    // Init cart data and store it in localstorage
+                    localStorage.setItem('customerCartData', JSON.stringify({}));
+
                     // return true to indicate successful login
                     const resultObject = { success: true, role: role };
                     return resultObject;
@@ -93,6 +96,7 @@ export class AuthenticationService {
         // clear token remove user from local storage to log user out
         this.token = null;
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('customerCartData');
         NavbarComponent.updateUserStatusLogout.next(true);
     }
 

@@ -21,7 +21,8 @@ import {
   MdDialogModule,
   MdSlideToggleModule,
   MdPaginatorModule,
-  MdSortModule
+  MdSortModule,
+  MdListModule
 } from '@angular/material';
 
 @NgModule({
@@ -46,7 +47,8 @@ import {
     MdDialogModule,
     MdSlideToggleModule,
     MdPaginatorModule,
-    MdSortModule
+    MdSortModule,
+    MdListModule
   ],
   exports: [
     MdButtonModule,
@@ -69,7 +71,8 @@ import {
     MdDialogModule,
     MdSlideToggleModule,
     MdPaginatorModule,
-    MdSortModule
+    MdSortModule,
+    MdListModule
   ]
 })
 export class MaterialModule {}
