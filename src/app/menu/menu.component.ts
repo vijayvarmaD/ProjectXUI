@@ -78,7 +78,18 @@ export class MenuComponent implements OnInit {
 
     // Add selected Product to cart
     add2Cart(product) {
-        const productIndexInMenu = this.vendorData.indexOf(product);
+        let productIndexInMenu;
+        // Click event from menu buttons
+        if (Object.keys(product).length > 4) {
+            productIndexInMenu = this.vendorData.indexOf(product);
+        } else {
+            // click event from cart buttons
+            for (const jaffa of this.vendorData) {
+                if (jaffa._id === product._id) {
+                    productIndexInMenu = this.vendorData.indexOf(jaffa);
+                }
+            }
+        }
         this.vendorData[productIndexInMenu].quantity++;
         const { quantity, _id, name, unitPrice } = product;
         const idCheck = this.cartData.cart.filter((obj) => {
@@ -102,7 +113,18 @@ export class MenuComponent implements OnInit {
 
     // Remove selected Product from cart
     removeFromCart(product) {
-        const productIndexInMenu = this.vendorData.indexOf(product);
+        let productIndexInMenu;
+        // Click event from menu buttons
+        if (Object.keys(product).length > 4) {
+            productIndexInMenu = this.vendorData.indexOf(product);
+        } else {
+            // click event from cart buttons
+            for (const jaffa of this.vendorData) {
+                if (jaffa._id === product._id) {
+                    productIndexInMenu = this.vendorData.indexOf(jaffa);
+                }
+            }
+        }
         // Min 1 item quantity is required or else ignore the click
         if (product.quantity !== 0) {
             this.vendorData[productIndexInMenu].quantity--;

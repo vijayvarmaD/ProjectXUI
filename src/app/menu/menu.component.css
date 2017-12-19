@@ -127,6 +127,10 @@ input {
     justify-content: center;
 }
 
+.checkoutButton {
+    min-width: 50%;
+}
+
 .cartCard-quantity {
     font-size: 80%;
 }
@@ -142,4 +146,14 @@ input {
 
 .cart-font {
     font-size: 80%;
+}
+
+.cartEmpty {
+    font-size: 90%;
+    font-family: cursive;
+}
+
+.material-icons {
+    vertical-align: middle;
+    font-size: 24px;
 }

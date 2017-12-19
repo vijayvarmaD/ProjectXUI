@@ -51,7 +51,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-3 text-center">
+            <div class="col-3" align="left" style="padding-left:10%;">
               <i class="fa fa-inr" aria-hidden="true"></i> {{item.unitPrice}}
             </div>
           </div>
@@ -66,7 +66,7 @@
       </h3>
       <md-divider></md-divider>
       <br>
-      <ul class="list-group">
+      <ul class="list-group" [hidden]="carterData?.length === 0">
         <li class="list-group-item" style="border:none;" *ngFor="let item of carterData">
           <div class="row cart-font">
             <div class="col-5">
@@ -95,10 +95,27 @@
           </div>
         </li>
       </ul>
-      <div class="cartCard-cost">
-        <i class="fa fa-inr" aria-hidden="true"></i> {{this.cartAmount}}
-      </div>
+      <div class="container text-center" [hidden]="carterData?.length !== 0">       
+          <p class="cartEmpty">Your cart is empty</p>
+        </div>
     </md-list>
+    
+    <md-card-content class="text-center">
+        <br>
+        <md-divider></md-divider>
+        <br>
+        <div class="row">
+            <div class="col-8" align="right">Total:</div>
+            <div class="col-4" align="right" style="padding-right:15%;"><i class="fa fa-inr" aria-hidden="true"></i> {{this.cartAmount}}</div>     
+        </div>
+   
+        
+      </md-card-content>
+    <md-card-actions class="text-center">
+        <button md-raised-button color="primary" class="checkoutButton">
+            <i class="material-icons">shopping_cart</i> Checkout
+          </button>
+    </md-card-actions>
   </md-card>
 </div>
 
