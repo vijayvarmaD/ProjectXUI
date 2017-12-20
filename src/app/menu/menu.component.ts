@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 // Models
 import { VendorMenu } from '../_models/customer.menu';
-// import { CartData } from '../_models/customer.cart';
 
 // Services & Components
 import { ViewsService } from '../_services/views.service';
@@ -70,6 +69,7 @@ export class MenuComponent implements OnInit {
                         product.quantity = 0;
                     }
                 });
+                this.cartAmount = this.cartData.totalAmount;
             }
             this.carterData = this.cartData.cart;
         });
@@ -147,6 +147,13 @@ export class MenuComponent implements OnInit {
             }
             this.cartData.totalAmount = this.cartAmount;
             localStorage.setItem('customerCartData', JSON.stringify(this.cartData));
+        }
+    }
+
+    // Checkout
+    checkoutClick() {
+        if (JSON.parse(localStorage.getItem('customerCartData')).cart.length > 0) {
+            this.router.navigate(['/order']);
         }
     }
 }

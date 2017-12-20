@@ -13,6 +13,7 @@ import { VendorViewMenu } from '../_models/vendor.menu';
 export class ProductsService {
 
     url: any = 'http://localhost:3000/api/products';
+    orderUrl: any = 'http://localhost:3000/api/orders';
 
     constructor (
         private http: Http,
@@ -80,6 +81,24 @@ export class ProductsService {
         const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
         return this.http.post(this.url + '/Vendor/EditProduct', bodyreq, options)
+            .map((response: Response) => {
+                const successCheck = response.json();
+                if (successCheck) {
+                    const resultObject = { success: true };
+                    return resultObject;
+                }
+            });
+    }
+
+    submitOrder(cartDetails): Observable<any> {
+        const bodyReq = {
+            'cart': cartDetails.cart,
+            'totalAmount': cartDetails.totalAmount,
+            'vendor': cartDetails.vendor
+        };
+        const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post(this.orderUrl + '/Submit', bodyReq, options)
             .map((response: Response) => {
                 const successCheck = response.json();
                 if (successCheck) {

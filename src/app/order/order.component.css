@@ -1,0 +1,27 @@
+.centerDiv {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    padding-top: 50px;
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.radioFont {
+    font-size: 12px;
+}
+
+.formField {
+    width: 75%;
+}
+
+.material-icons {
+    font-size: 30px;
+    vertical-align: middle;
+    color: darkslategrey;
+}

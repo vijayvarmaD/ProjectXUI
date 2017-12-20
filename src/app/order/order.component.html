@@ -1,0 +1,46 @@
+<div class="centerDiv">
+    <div class="container">
+        <md-card class="example-card text-center">
+            <md-card-header>
+                <md-card-title><strong>Order</strong></md-card-title>
+            </md-card-header>
+            <md-card-content>      
+                    <md-horizontal-stepper [linear]="isLinear">
+                            <md-step [stepControl]="firstFormGroup">
+                              <form [formGroup]="firstFormGroup">
+                                <ng-template mdStepLabel>Address</ng-template>
+                                <md-form-field>
+                                  <input mdInput placeholder="address" formControlName="firstCtrl" required>
+                                </md-form-field>
+                                <div>
+                                  <button md-button mdStepperNext>Next</button>
+                                </div>
+                              </form>
+                            </md-step>
+                            <md-step [stepControl]="secondFormGroup">
+                              <form [formGroup]="secondFormGroup">
+                                <ng-template mdStepLabel>Payment</ng-template>
+                                <br>
+                                <md-checkbox formControlName="secondCtrl">Wallet Balance:  <i class="fa fa-inr" aria-hidden="true"></i> {{walletBalance}}</md-checkbox>
+                                <br>
+                                <br>
+                                <div>
+                                  <button md-button mdStepperPrevious>Back</button>
+                                  <button md-button mdStepperNext>Next</button>
+                                </div>
+                              </form>
+                            </md-step>
+                            <md-step>
+                              <ng-template mdStepLabel>Done</ng-template>
+                              You are now done.
+                              <div>
+                                <button md-button mdStepperPrevious>Back</button>
+                              </div>
+                            </md-step>
+                          </md-horizontal-stepper>        
+            </md-card-content>
+            <md-card-footer>
+            </md-card-footer>
+        </md-card>
+    </div>
+</div>

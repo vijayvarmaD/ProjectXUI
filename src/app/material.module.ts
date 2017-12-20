@@ -22,7 +22,9 @@ import {
   MdSlideToggleModule,
   MdPaginatorModule,
   MdSortModule,
-  MdListModule
+  MdListModule,
+  MdStepperModule,
+  MdCheckboxModule
 } from '@angular/material';
 
 @NgModule({
@@ -48,7 +50,9 @@ import {
     MdSlideToggleModule,
     MdPaginatorModule,
     MdSortModule,
-    MdListModule
+    MdListModule,
+    MdStepperModule,
+    MdCheckboxModule
   ],
   exports: [
     MdButtonModule,
@@ -72,7 +76,9 @@ import {
     MdSlideToggleModule,
     MdPaginatorModule,
     MdSortModule,
-    MdListModule
+    MdListModule,
+    MdStepperModule,
+    MdCheckboxModule
   ]
 })
 export class MaterialModule {}

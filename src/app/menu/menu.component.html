@@ -112,7 +112,7 @@
         
       </md-card-content>
     <md-card-actions class="text-center">
-        <button md-raised-button color="primary" class="checkoutButton">
+        <button md-raised-button color="primary" class="checkoutButton" (click)="checkoutClick()" [disabled]="cartAmount === 0">
             <i class="material-icons">shopping_cart</i> Checkout
           </button>
     </md-card-actions>
