@@ -24,7 +24,8 @@ import {
   MdSortModule,
   MdListModule,
   MdStepperModule,
-  MdCheckboxModule
+  MdCheckboxModule,
+  MdExpansionModule
 } from '@angular/material';
 
 @NgModule({
@@ -52,7 +53,8 @@ import {
     MdSortModule,
     MdListModule,
     MdStepperModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    MdExpansionModule
   ],
   exports: [
     MdButtonModule,
@@ -78,7 +80,8 @@ import {
     MdSortModule,
     MdListModule,
     MdStepperModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    MdExpansionModule
   ]
 })
 export class MaterialModule {}

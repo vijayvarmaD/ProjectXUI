@@ -2,7 +2,7 @@
     position: absolute; 
     left: 0; 
     right: 0; 
-    padding-top: 50px;
+    padding-top: 10px;
     margin-left: auto; 
     margin-right: auto; 
     max-width: 600px;
@@ -10,7 +10,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
 .radioFont {
     font-size: 12px;
@@ -21,7 +20,50 @@
 }
 
 .material-icons {
-    font-size: 30px;
-    vertical-align: middle;
+    font-size: 20px;
+    /* vertical-align: middle; */
     color: darkslategrey;
+}
+
+
+.example-headers-align .mat-expansion-panel-header-title, 
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}   
+
+.inrcss {
+    font-size: 90%;
+}
+
+.orderPageImage {
+   max-height: 200px;
+}
+
+.spinner {
+    max-width: 20%;
+    max-height: 20%; 
+    padding-top: 15%;
+}
+
+.spinnerRow {
+    height: 5%;
+}
+p.col {
+    max-height: 60px;;
+}
+
+.okCss {
+    color: green;
+    padding-top: 110%;
+    vertical-align: bottom;
+    font-size: 120%;
+}
+
+.listSize {
+    font-size: 90%;
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../_services/authentication.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { CommService } from '../_services/comm.service';
 
 @Component({
     templateUrl: './login.component.html',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
       private router: Router,
-      private authenticationService: AuthenticationService
+      private authenticationService: AuthenticationService,
+      private comms: CommService
     ) { }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
                   }
                   // login successful
                 //   this.router.navigate(['/home']);
+                this.comms.connect2Server();
               } else {
                   // login failed
                   this.error = 'Username or password is incorrect';

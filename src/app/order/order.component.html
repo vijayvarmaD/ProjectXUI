@@ -1,46 +1,162 @@
 <div class="centerDiv">
-    <div class="container">
-        <md-card class="example-card text-center">
-            <md-card-header>
-                <md-card-title><strong>Order</strong></md-card-title>
-            </md-card-header>
-            <md-card-content>      
-                    <md-horizontal-stepper [linear]="isLinear">
-                            <md-step [stepControl]="firstFormGroup">
-                              <form [formGroup]="firstFormGroup">
-                                <ng-template mdStepLabel>Address</ng-template>
-                                <md-form-field>
-                                  <input mdInput placeholder="address" formControlName="firstCtrl" required>
-                                </md-form-field>
-                                <div>
-                                  <button md-button mdStepperNext>Next</button>
-                                </div>
-                              </form>
-                            </md-step>
-                            <md-step [stepControl]="secondFormGroup">
-                              <form [formGroup]="secondFormGroup">
-                                <ng-template mdStepLabel>Payment</ng-template>
-                                <br>
-                                <md-checkbox formControlName="secondCtrl">Wallet Balance:  <i class="fa fa-inr" aria-hidden="true"></i> {{walletBalance}}</md-checkbox>
-                                <br>
-                                <br>
-                                <div>
-                                  <button md-button mdStepperPrevious>Back</button>
-                                  <button md-button mdStepperNext>Next</button>
-                                </div>
-                              </form>
-                            </md-step>
-                            <md-step>
-                              <ng-template mdStepLabel>Done</ng-template>
-                              You are now done.
-                              <div>
-                                <button md-button mdStepperPrevious>Back</button>
-                              </div>
-                            </md-step>
-                          </md-horizontal-stepper>        
-            </md-card-content>
-            <md-card-footer>
-            </md-card-footer>
-        </md-card>
-    </div>
+  <div class="container">
+    <md-card class="example-card text-center">
+      <md-card-header>
+        <md-card-title>
+          <strong>Order</strong>
+        </md-card-title>
+      </md-card-header>
+      <img md-card-image class="orderPageImage" src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu" *ngIf="orderState === 'POST-SUBMIT'">
+      <md-card-content>
+        <md-accordion class="example-headers-align" *ngIf="orderState === 'PRE-SUBMIT' || orderState === 'SUBMIT'">
+          <md-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+            <md-expansion-panel-header>
+              <md-panel-title>
+                Address
+              </md-panel-title>
+              <md-panel-description>
+                {{addressDecription}}
+                <i class="material-icons">location_on</i>
+              </md-panel-description>
+            </md-expansion-panel-header>
+
+            <form [formGroup]="firstFormGroup">
+              <md-form-field>
+                <input mdInput placeholder="Address" formControlName="firstCtrl" required>
+              </md-form-field>
+            </form>
+
+            <md-action-row>
+              <button md-raised-button color="primary" (click)="nextStep()">Next</button>
+            </md-action-row>
+          </md-expansion-panel>
+          <md-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+              <md-expansion-panel-header>
+                <md-panel-title>
+                  Order Info
+                </md-panel-title>
+                <md-panel-description>
+                  {{totalQuantity}} items
+                  <i class="material-icons">restaurant</i>
+                </md-panel-description>
+              </md-expansion-panel-header>
+
+              <ul class="list-group">
+                  <li class="list-group-item" style="border:none;" *ngFor="let item of carterData">
+                    <div class="row text-center">
+                      <div class="col-4" align="left">
+                        {{item.name}}
+                      </div>
+                      <div class="col-3" align="left">
+                          {{item.quantity}}&nbsp;&nbsp;<i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;{{item.unitPrice}}    
+                        </div>
+                      <div class="col-2" align="left" style="padding-left:7%;">
+                            <i class="fa fa-inr" aria-hidden="true"></i> {{ item.quantity * item.unitPrice }}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+  
+              <md-action-row>
+                <button md-raised-button color="primary" (click)="prevStep()">Previous</button>
+                &nbsp;&nbsp;
+                <button md-raised-button color="primary" (click)="nextStep()">Next</button>
+              </md-action-row>
+            </md-expansion-panel>
+          <md-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+            <md-expansion-panel-header>
+              <md-panel-title>
+                Payment
+              </md-panel-title>
+              <md-panel-description>
+                <div><i class="fa fa-inr inrcss" aria-hidden="true"></i> {{cartAmount}}</div>
+                  
+                <i class="material-icons">payment</i>
+              </md-panel-description>
+            </md-expansion-panel-header>
+
+            <form [formGroup]="secondFormGroup">
+              <br>
+              <md-checkbox formControlName="secondCtrl" [disabled]="walletBalance < cartAmount">Wallet Balance:
+                <i class="fa fa-inr" aria-hidden="true"></i> {{walletBalance}}
+              </md-checkbox>
+              <br>
+              <div class="alert alert-danger" role="alert" *ngIf="walletBalance < cartAmount">
+                Your wallet has insufficient funds, please add credits
+              </div>
+              <br>
+            </form>
+
+
+            <md-action-row>
+                <button md-raised-button color="primary" (click)="prevStep()">Previous</button>
+                &nbsp;&nbsp;
+                <button md-raised-button color="primary" (click)="nextStep()">Next</button>
+            </md-action-row>
+          </md-expansion-panel>
+        </md-accordion>
+        <md-expansion-panel *ngIf="orderState === 'POST-SUBMIT'">
+          <md-expansion-panel-header>
+            <md-panel-title>
+              <i class="material-icons">shopping_basket</i> &nbsp;
+              Order Details
+            </md-panel-title>
+          </md-expansion-panel-header>
+          
+          <ul class="list-group">
+              <li class="list-group-item" style="border:none;" *ngFor="let item of carterData">
+                <div class="row text-center">
+                  <div class="col-4" align="left">
+                    {{item.name}}
+                  </div>
+                  <div class="col-3" align="left">
+                      {{item.quantity}}&nbsp;&nbsp;<i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;{{item.unitPrice}}    
+                    </div>
+                  <div class="col-2" align="left" style="padding-left:7%;">
+                        <i class="fa fa-inr" aria-hidden="true"></i> {{ item.quantity * item.unitPrice }}
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <hr>
+            <div class="row">
+                <h5 class="col" align="left" style="padding-left:5%;">Total: </h5>
+                <h5 class="col" align="right" style="padding-right:5%;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;{{cartAmount}}</h5>
+            </div>
+            
+        </md-expansion-panel>
+        <md-expansion-panel [expanded]="true" *ngIf="orderState === 'POST-SUBMIT'">
+          <md-expansion-panel-header>
+            <md-panel-title>
+                <i class="material-icons">notifications_active</i> &nbsp;
+              Order Status
+            </md-panel-title>
+          </md-expansion-panel-header>
+          <md-list>
+            <md-list-item *ngFor="let item of spinnerData">
+              <md-icon md-list-icon>{{item.icon}}</md-icon>
+              <p md-line align="left" style="font-size: 80%;" >{{item.attr}}</p>
+              <p align="right" *ngIf="item.status === 'spin'">
+                <md-spinner class="spinner"></md-spinner>
+              </p>
+              <p align="right" *ngIf="item.status === 'complete'">
+              <i class="material-icons okCss">check_circle</i>
+            </p>
+            </md-list-item>
+          </md-list>
+          
+        </md-expansion-panel>
+      </md-card-content>
+      <md-card-actions *ngIf="orderState === 'SUBMIT'">
+        <button md-raised-button color="primary" (click)="orderSubmit()">Place Order</button>
+      </md-card-actions>
+      <md-card-footer>
+      </md-card-footer>
+    </md-card>
+  </div>
 </div>
+
+
+

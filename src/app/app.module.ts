@@ -31,6 +31,8 @@ import { OrderGuard } from './_guards/order.guard';
 import { AuthenticationService } from './_services/authentication.service';
 import { ProductsService } from './_services/products.service';
 import { ViewsService } from './_services/views.service';
+import { UtilityService } from './_services/utility.service';
+import { CommService } from './_services/comm.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,15 @@ import { ViewsService } from './_services/views.service';
     ReactiveFormsModule
   ],
   entryComponents: [ VendorProductDeleteConfirmDialog, VendorProductEditFormDialog, ClearCartDataConfirmDialogComponent ],
-  providers: [ProductsService, AuthenticationService, AuthGuard, ViewsService, OrderGuard],
+  providers: [
+    ProductsService,
+    AuthenticationService,
+    AuthGuard,
+    ViewsService,
+    OrderGuard,
+    UtilityService,
+    CommService
+  ],
   bootstrap: [
     AppComponent
   ]

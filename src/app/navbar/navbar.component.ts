@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/cor
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
+import { CommService } from '../_services/comm.service';
 
 @Component({
     selector: 'app-nav',
@@ -16,7 +17,8 @@ import { Subject } from 'rxjs/Subject';
 
     constructor(
       private router: Router,
-      private activatedRoute: ActivatedRoute
+      private activatedRoute: ActivatedRoute,
+      private comms: CommService
     ) {
       // Default Login Status
       this.loginStatus = false;
