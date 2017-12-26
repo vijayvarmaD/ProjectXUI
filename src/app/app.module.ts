@@ -42,7 +42,6 @@ import { CommService } from './_services/comm.service';
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    FileSelectDirective,
     VendorViewComponent,
     DeliveryViewComponent,
     CustomerViewComponent,

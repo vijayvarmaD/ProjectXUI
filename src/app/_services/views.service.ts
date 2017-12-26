@@ -11,8 +11,8 @@ import { VendorMenu } from '../_models/customer.menu';
 
 export class ViewsService {
 
-    url: any = 'http://localhost:3000/api/views';
-    url2: any = 'http://localhost:3000/api/products/Customer/view';
+    url: any = 'https://eatup-api.herokuapp.com/api/views';
+    url2: any = 'https://eatup-api.herokuapp.com/api/products/Customer/view';
 
     constructor (
         private http: Http,

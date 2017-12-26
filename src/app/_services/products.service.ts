@@ -12,8 +12,8 @@ import { VendorViewMenu } from '../_models/vendor.menu';
 
 export class ProductsService {
 
-    url: any = 'http://localhost:3000/api/products';
-    orderUrl: any = 'http://localhost:3000/api/orders';
+    url: any = 'https://eatup-api.herokuapp.com/api/products';
+    orderUrl: any = 'https://eatup-api.herokuapp.com/api/orders';
 
     constructor (
         private http: Http,

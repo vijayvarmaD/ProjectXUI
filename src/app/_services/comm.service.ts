@@ -6,7 +6,7 @@ import * as io from 'socket.io-client';
 
 @Injectable()
 export class CommService {
-    private url = 'http://localhost:3000';
+    private url = 'https://eatup-api.herokuapp.com';
     private token = null;
     private socket = null;
 

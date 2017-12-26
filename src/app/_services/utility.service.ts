@@ -10,7 +10,7 @@ import { VendorViewMenu } from '../_models/vendor.menu';
 @Injectable()
 
 export class UtilityService {
-    url: any = 'http://localhost:3000/api/wallets/customer/details';
+    url: any = 'https://eatup-api.herokuapp.com/api/wallets/customer/details';
 
     constructor (
         private http: Http,

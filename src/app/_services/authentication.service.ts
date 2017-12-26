@@ -10,7 +10,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 export class AuthenticationService {
     public token: string;
     public phone: number;
-    url: any = 'http://localhost:3000';
+    url: any = 'https://eatup-api.herokuapp.com';
 
     constructor (private http: Http) {
         // set token if saved in local storage
