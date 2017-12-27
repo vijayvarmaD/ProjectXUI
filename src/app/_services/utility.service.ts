@@ -11,6 +11,7 @@ import { VendorViewMenu } from '../_models/vendor.menu';
 
 export class UtilityService {
     url: any = 'https://eatup-api.herokuapp.com/api/wallets/customer/details';
+    orderurl: any = 'https://eatup-api.herokuapp.com/api/orders/OrderData/id';
 
     constructor (
         private http: Http,
@@ -22,5 +23,12 @@ export class UtilityService {
         const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
         return this.http.get(this.url, options).map((response: Response) => response.json());
+    }
+
+    orderDetailsAlert(): Observable<any> {
+        // add authorization header with jwt token
+        const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post(this.orderurl, options).map((response: Response) => response.json());
     }
 }

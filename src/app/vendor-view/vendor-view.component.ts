@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommService } from '../_services/comm.service';
+import { UtilityService } from '../_services/utility.service';
 
 @Component({
     templateUrl: './vendor-view.component.html',
@@ -14,7 +15,8 @@ export class VendorViewComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private comms: CommService
+        private comms: CommService,
+        private utility: UtilityService
     ) { }
 
     ngOnInit() {
@@ -25,6 +27,10 @@ export class VendorViewComponent implements OnInit {
         // New Order Notification
         this.comms.newOrderNotifcation().subscribe(message => {
             console.log(message);
+            // Call service for order details
+            this.utility.orderDetailsAlert().subscribe(data => {
+                console.log(data);
+            });
         });
     }
 }
