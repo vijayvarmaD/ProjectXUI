@@ -8,7 +8,9 @@ import { NavbarComponent } from '../navbar/navbar.component';
 export class AlertHelper {
     constructor() {}
 
-    alertNewOrder2Vendor() {
-        
+    alertNewOrder2Vendor(data) {
+        const orderData = data;
+        // Add to localstorage
+        NavbarComponent.updateAlertBox.next('new-order');
     }
 }

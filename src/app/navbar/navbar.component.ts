@@ -12,8 +12,11 @@ import { CommService } from '../_services/comm.service';
   export class NavbarComponent implements OnInit {
     public static updateUserStatus: Subject<boolean> = new Subject();
     public static updateUserStatusLogout: Subject<boolean> = new Subject();
+    public static updateAlertBox: Subject<string> = new Subject();
     @Input() public role: string;
     loginStatus: boolean;
+    alertArray: string;
+    alertCounter = 0;
 
     constructor(
       private router: Router,
@@ -37,6 +40,11 @@ import { CommService } from '../_services/comm.service';
           this.role = '';
           this.loginStatus = false;
         }
+      });
+
+      NavbarComponent.updateAlertBox.subscribe(data => {
+        this.alertArray = data;
+        this.alertCounter++;
       });
     }
 

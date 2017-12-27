@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommService } from '../_services/comm.service';
 import { UtilityService } from '../_services/utility.service';
+import { AlertHelper } from '../_helpers/alert.helper';
 
 @Component({
     templateUrl: './vendor-view.component.html',
@@ -16,7 +17,8 @@ export class VendorViewComponent implements OnInit {
     constructor(
         private router: Router,
         private comms: CommService,
-        private utility: UtilityService
+        private utility: UtilityService,
+        private alertHelper: AlertHelper
     ) { }
 
     ngOnInit() {
@@ -26,10 +28,9 @@ export class VendorViewComponent implements OnInit {
 
         // New Order Notification
         this.comms.newOrderNotifcation().subscribe(order => {
-            console.log(order);
             // Call service for order details
             this.utility.orderDetailsAlert(order).subscribe(data => {
-                console.log(data);
+                this.alertHelper.alertNewOrder2Vendor(data);
             });
         });
     }

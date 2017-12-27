@@ -7,4 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showNewOrderAlert: Boolean = false;
+
+  constructor() {}
+
 }
