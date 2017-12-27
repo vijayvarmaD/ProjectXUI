@@ -25,10 +25,10 @@ export class VendorViewComponent implements OnInit {
         NavbarComponent.updateUserStatus.next(true);
 
         // New Order Notification
-        this.comms.newOrderNotifcation().subscribe(message => {
-            console.log(message);
+        this.comms.newOrderNotifcation().subscribe(order => {
+            console.log(order);
             // Call service for order details
-            this.utility.orderDetailsAlert().subscribe(data => {
+            this.utility.orderDetailsAlert(order).subscribe(data => {
                 console.log(data);
             });
         });

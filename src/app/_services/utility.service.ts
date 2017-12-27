@@ -25,10 +25,13 @@ export class UtilityService {
         return this.http.get(this.url, options).map((response: Response) => response.json());
     }
 
-    orderDetailsAlert(): Observable<any> {
+    orderDetailsAlert(order: any): Observable<any> {
+        const bodyReq = {
+            'oId': order.oId
+        };
         // add authorization header with jwt token
         const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
-        return this.http.post(this.orderurl, options).map((response: Response) => response.json());
+        return this.http.post(this.orderurl, bodyReq, options).map((response: Response) => response.json());
     }
 }
