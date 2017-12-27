@@ -33,6 +33,7 @@ import { ProductsService } from './_services/products.service';
 import { ViewsService } from './_services/views.service';
 import { UtilityService } from './_services/utility.service';
 import { CommService } from './_services/comm.service';
+import { AlertHelper } from './_helpers/alert.helper';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { CommService } from './_services/comm.service';
     ViewsService,
     OrderGuard,
     UtilityService,
-    CommService
+    CommService,
+    AlertHelper
   ],
   bootstrap: [
     AppComponent
