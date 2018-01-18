@@ -2,7 +2,23 @@
   <md-card>
     <div class="row">
       <div>
-        <img class="headerImg" src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu">
+        <!-- img -->
+        <img class="headerImg" src="../../assets/img1.jpg" *ngIf="vendorName === 'McDonalds'">
+        <img class="headerImg" src="../../assets/Chicken-Biryani_jpeg.jpg" *ngIf="vendorName === 'Paradise'">
+        <img class="headerImg" src="../../assets/img2.png" *ngIf="vendorName === 'TGIF'">
+        <img class="headerImg" src="../../assets/img3.jpg" *ngIf="vendorName === 'Taj Krishna'">
+        <img class="headerImg" src="../../assets/img5.jpg" *ngIf="vendorName === 'Mariott'">
+        <img class="headerImg" src="../../assets/img6.jpg" *ngIf="vendorName === 'Alakapuri'">
+        <img class="headerImg" src="../../assets/img7.jpg" *ngIf="vendorName === 'Ananda Bhavan'">
+        <img class="headerImg" src="../../assets/img8.jpg" *ngIf="vendorName === 'Paragon'">
+        <img class="headerImg" src="../../assets/img9.jpg" *ngIf="vendorName === 'Rasoi'">
+        <img class="headerImg" src="../../assets/img10.jpg" *ngIf="vendorName === 'Haveli'">
+        <img class="headerImg" src="../../assets/img11.jpg" *ngIf="vendorName === 'Chutneys'">
+        <img class="headerImg" src="../../assets/img12.jpg" *ngIf="vendorName === 'Vivanta'">
+        <img class="headerImg" src="../../assets/img13.jpg" *ngIf="vendorName === 'Taj Banjara'">
+        <img class="headerImg" src="../../assets/img14.jpg" *ngIf="vendorName === 'Bawarchi'">
+        <img class="headerImg" src="../../assets/img15.jpg" *ngIf="vendorName === 'Park Hayatt'">
+        <!-- img -->
       </div>
       <div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -79,7 +95,7 @@
                     <i class="material-icons cart-icon">remove_circle_outline</i>
                   </a>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                   {{item.quantity}}
                 </div>
                 <div class="col-3">

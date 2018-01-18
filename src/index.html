@@ -20,12 +20,22 @@
   <app-root>loading...</app-root>
 </body>
 <script>
-    // $(function () {
-    //   $('[data-toggle="popover"]').popover()
-    // });
+    $(function () {
+      $('[data-toggle="popover"]').popover({
+        html : true,
+        content: function() {
+          var content = $(this).attr("data-popover-content");
+          return $(content).children(".popover-body").html();
+        }
+    });
 
-    // $('.popover-dismiss').popover({
-    //   trigger: 'focus'
-    // }); 
+      $('.example-popover').popover({
+    container: 'body'
+  })
+    });
+
+    $('.popover-dismiss').popover({
+      trigger: 'focus'
+    }); 
 </script>
 </html>

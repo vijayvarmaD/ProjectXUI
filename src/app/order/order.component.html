@@ -6,7 +6,7 @@
           <strong>Order</strong>
         </md-card-title>
       </md-card-header>
-      <img md-card-image class="orderPageImage" src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu" *ngIf="orderState === 'POST-SUBMIT'">
+      <img md-card-image class="orderPageImage" src="../../assets/imgdelivery.gif" *ngIf="orderState === 'POST-SUBMIT'">
       <md-card-content>
         <md-accordion class="example-headers-align" *ngIf="orderState === 'PRE-SUBMIT' || orderState === 'SUBMIT'">
           <md-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">

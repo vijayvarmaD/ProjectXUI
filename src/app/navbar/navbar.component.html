@@ -34,12 +34,22 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
                 <a class="nav-link">
-                <div>
+                <div data-container="body"
+                    tabindex="0"
+                    data-html="true"
+                    data-toggle="popover"
+                    data-placement="bottom"
+                    data-trigger="focus"
+                    title="Notifications"
+                    data-popover-content="#a1">
                     <i class="material-icons" *ngIf="loginStatus">notifications</i>
-                    <span class="badge badge-notify" *ngIf="alertCounter > 0">{{alertCounter}}</span>
+                    <span class="badge badge-notify" *ngIf="showCounter">{{alertCounter}}</span>
+                </div>  
+                <div hidden id="a1">
+                    <div class="popover-body">
+                     <p>TID: {{alertArray}}</p>
+                    </div>
                 </div>
-
-                    
                 </a>
             </li>
             <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="loginStatus">
@@ -58,3 +68,4 @@
         </ul>
     </div>
 </nav>
+

@@ -5,10 +5,27 @@
                 <div class="col-sm-3" *ngFor="let restaurant of restaurantsList">
                     <div class="card-container">
                         <md-card class="example-card">
-                            <img md-card-image src="../../assets/Chicken-Biryani_jpeg.jpg" alt="Photo of a Shiba Inu">
+                            
+                            <!-- img -->
+                            <img md-card-image class="image-sizer" src="../../assets/img1.jpg" *ngIf="restaurant.name === 'McDonalds'">
+                            <img md-card-image class="image-sizer" src="../../assets/Chicken-Biryani_jpeg.jpg" *ngIf="restaurant.name === 'Paradise'">
+                            <img md-card-image class="image-sizer" src="../../assets/img2.png" *ngIf="restaurant.name === 'TGIF'">
+                            <img md-card-image class="image-sizer" src="../../assets/img3.jpg" *ngIf="restaurant.name === 'Taj Krishna'">
+                            <img md-card-image class="image-sizer" src="../../assets/img5.jpg" *ngIf="restaurant.name === 'Mariott'">
+                            <img md-card-image class="image-sizer" src="../../assets/img6.jpg" *ngIf="restaurant.name === 'Alakapuri'">
+                            <img md-card-image class="image-sizer" src="../../assets/img7.jpg" *ngIf="restaurant.name === 'Ananda Bhavan'">
+                            <img md-card-image class="image-sizer" src="../../assets/img8.jpg" *ngIf="restaurant.name === 'Paragon'">
+                            <img md-card-image class="image-sizer" src="../../assets/img9.jpg" *ngIf="restaurant.name === 'Rasoi'">
+                            <img md-card-image class="image-sizer" src="../../assets/img10.jpg" *ngIf="restaurant.name === 'Haveli'">
+                            <img md-card-image class="image-sizer" src="../../assets/img11.jpg" *ngIf="restaurant.name === 'Chutneys'">
+                            <img md-card-image class="image-sizer" src="../../assets/img12.jpg" *ngIf="restaurant.name === 'Vivanta'">
+                            <img md-card-image class="image-sizer" src="../../assets/img13.jpg" *ngIf="restaurant.name === 'Taj Banjara'">
+                            <img md-card-image class="image-sizer" src="../../assets/img14.jpg" *ngIf="restaurant.name === 'Bawarchi'">
+                            <img md-card-image class="image-sizer" src="../../assets/img15.jpg" *ngIf="restaurant.name === 'Park Hayatt'">
+                            <!-- img -->
                             <md-card-content>
                                 <md-card-title>{{restaurant.name}}</md-card-title>
-                                <md-card-subtitle>{{restaurant.city}}</md-card-subtitle>
+                                <md-card-subtitle>{{restaurant.address}}, {{restaurant.city}}</md-card-subtitle>
                             </md-card-content>
                             <hr/>
                             <md-card-actions>

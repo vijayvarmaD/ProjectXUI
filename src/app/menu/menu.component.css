@@ -43,8 +43,8 @@ input {
   }
 
   .headerImg {
-      max-width: 200px;
-      max-height:150px;
+      width: 200px;
+      height:100px;
       padding-left: 20px;
   }
 

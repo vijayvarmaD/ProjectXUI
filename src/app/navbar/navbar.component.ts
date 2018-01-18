@@ -15,8 +15,10 @@ import { CommService } from '../_services/comm.service';
     public static updateAlertBox: Subject<string> = new Subject();
     @Input() public role: string;
     loginStatus: boolean;
-    alertArray: string;
+    alertArray: any;
     alertCounter = 0;
+    tId: any;
+    showCounter = false;
 
     constructor(
       private router: Router,
@@ -43,12 +45,21 @@ import { CommService } from '../_services/comm.service';
       });
 
       NavbarComponent.updateAlertBox.subscribe(data => {
-        this.alertArray = data;
+        // this.alertArray = data.transactionId;
         this.alertCounter++;
+        this.NotificationController(data);
+        if (this.alertCounter > 0) {
+          this.showCounter = true;
+        }
       });
     }
 
     ngOnInit() {
 
+    }
+
+    NotificationController(data) {
+      console.log(data);
+      this.alertArray = data.transactionId;
     }
   }
