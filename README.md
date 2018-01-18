@@ -1,27 +1,10 @@
-# Ui
+# EatUp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.4.
+This project consumes a Node API [ProjectXServer](https://github.com/vijayvarmaD/ProjectXServer/blob/master/README.md) which serves as angular front end for all the 4 users (customer, vendor, delivery person, admin). All users can login and have access to various controls according to the user role.
 
-## Development server
+Libraries:
+1. Angular Material: Material design components have been used extensively in this project. Material Design is a really cool UI/UX principle(being used in Android >= 5) that delivers a clean interface and has greater focus on the data being presented. I have used 'cdk data-table' provided by material creates a fluid UX. Although, the intial setup takes a little longer when compared with jquery plugins.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2. Bootstrap: The best html, css library yet.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
