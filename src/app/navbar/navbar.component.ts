@@ -2,7 +2,6 @@ import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/cor
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
-import { CommService } from '../_services/comm.service';
 
 @Component({
     selector: 'app-nav',
@@ -15,15 +14,13 @@ import { CommService } from '../_services/comm.service';
     public static updateAlertBox: Subject<string> = new Subject();
     @Input() public role: string;
     loginStatus: boolean;
-    alertArray: any;
+    alertArray: String[] = [];
     alertCounter = 0;
     tId: any;
-    showCounter = false;
 
     constructor(
       private router: Router,
-      private activatedRoute: ActivatedRoute,
-      private comms: CommService
+      private activatedRoute: ActivatedRoute
     ) {
       // Default Login Status
       this.loginStatus = false;
@@ -45,12 +42,8 @@ import { CommService } from '../_services/comm.service';
       });
 
       NavbarComponent.updateAlertBox.subscribe(data => {
-        // this.alertArray = data.transactionId;
         this.alertCounter++;
         this.NotificationController(data);
-        if (this.alertCounter > 0) {
-          this.showCounter = true;
-        }
       });
     }
 
@@ -59,7 +52,12 @@ import { CommService } from '../_services/comm.service';
     }
 
     NotificationController(data) {
-      console.log(data);
-      this.alertArray = data.transactionId;
+      this.alertArray.push(data);
+    }
+
+    NotificationViewed() {
+      if (this.alertCounter > 0) {
+        this.alertCounter--;
+      }
     }
   }

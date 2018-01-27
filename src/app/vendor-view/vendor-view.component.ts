@@ -5,6 +5,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { CommService } from '../_services/comm.service';
 import { UtilityService } from '../_services/utility.service';
 import { AlertHelper } from '../_helpers/alert.helper';
+import { GlobalHelper } from '../_helpers/global.helper';
 
 @Component({
     templateUrl: './vendor-view.component.html',
@@ -17,8 +18,7 @@ export class VendorViewComponent implements OnInit {
     constructor(
         private router: Router,
         private comms: CommService,
-        private utility: UtilityService,
-        private alertHelper: AlertHelper
+        private globalHelper: GlobalHelper
     ) { }
 
     ngOnInit() {
@@ -26,12 +26,6 @@ export class VendorViewComponent implements OnInit {
         this.userPhone = currentUser.phone;
         NavbarComponent.updateUserStatus.next(true);
 
-        // New Order Notification
-        this.comms.newOrderNotifcation().subscribe(order => {
-            // Call service for order details
-            this.utility.orderDetailsAlert(order).subscribe(data => {
-                this.alertHelper.alertNewOrder2Vendor(data);
-            });
-        });
+        this.globalHelper.VendorGlobalServiceCall();
     }
 }

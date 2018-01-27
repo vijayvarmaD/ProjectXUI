@@ -23,8 +23,8 @@ export class CustomerViewComponent implements OnInit {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.userPhone = currentUser.phone;
         NavbarComponent.updateUserStatus.next(true);
-        this.comms.getMessages().subscribe(message => {
-            console.log(message);
-        });
+        // this.comms.getMessages().subscribe(message => {
+        //     console.log(message);
+        // });
     }
 }

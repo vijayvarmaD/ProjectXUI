@@ -9,8 +9,8 @@ export class AlertHelper {
     constructor() {}
 
     alertNewOrder2Vendor(data) {
-        const orderData = data.orderData;
+        const alertMsg = 'New order from ' + data.customerName.name;
         // Add to localstorage
-        NavbarComponent.updateAlertBox.next(orderData);
+        NavbarComponent.updateAlertBox.next(alertMsg);
     }
 }

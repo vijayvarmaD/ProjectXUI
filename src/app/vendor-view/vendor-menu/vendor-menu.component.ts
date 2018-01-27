@@ -17,6 +17,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
+import { GlobalHelper } from '../../_helpers/global.helper';
 
 // Used for Chip list
 const COMMA = 188;
@@ -45,12 +46,15 @@ export class VendorMenuComponent implements OnInit {
     constructor(
         private router: Router,
         private productsService: ProductsService,
-        public dialog: MdDialog
+        public dialog: MdDialog,
+        private globalHelper: GlobalHelper
     ) {
         // Subject Subscriber - Update view menu
         VendorMenuComponent.updateMenuView.subscribe(res => {
             this.dbGenerator.refreshData();
         });
+
+        this.globalHelper.VendorGlobalServiceCall();
     }
 
     ngOnInit() {

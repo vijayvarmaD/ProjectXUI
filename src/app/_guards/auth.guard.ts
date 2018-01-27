@@ -8,12 +8,12 @@ export class AuthGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if (localStorage.getItem('currentUser')) {
             const role = JSON.parse(localStorage.getItem('currentUser')).role;
-
             // Vendor Access
             if ((
                 state.url === '/vendor/home' ||
                 state.url === '/vendor/menu' ||
-                state.url === '/vendor/menu/addProduct'
+                state.url === '/vendor/menu/addProduct' ||
+                state.url === '/vendor/orders'
                 )
                 && role === 'VENDOR') {
                     return true;

@@ -25,6 +25,7 @@ import {
 } from './vendor-view/vendor-menu/vendor-menu.component';
 import { VendorAddProductComponent } from './vendor-view/vendor-add-product/vendor-add-product.component';
 import { OrderComponent } from './order/order.component';
+import { VendorOrdersComponent } from './vendor-view/vendor-orders/vendor-orders.component';
 
 import { AuthGuard } from './_guards/auth.guard';
 import { OrderGuard } from './_guards/order.guard';
@@ -34,6 +35,7 @@ import { ViewsService } from './_services/views.service';
 import { UtilityService } from './_services/utility.service';
 import { CommService } from './_services/comm.service';
 import { AlertHelper } from './_helpers/alert.helper';
+import { GlobalHelper } from './_helpers/global.helper';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { AlertHelper } from './_helpers/alert.helper';
     VendorProductDeleteConfirmDialog,
     VendorProductEditFormDialog,
     ClearCartDataConfirmDialogComponent,
-    OrderComponent
+    OrderComponent,
+    VendorOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import { AlertHelper } from './_helpers/alert.helper';
     OrderGuard,
     UtilityService,
     CommService,
-    AlertHelper
+    AlertHelper,
+    GlobalHelper
   ],
   bootstrap: [
     AppComponent

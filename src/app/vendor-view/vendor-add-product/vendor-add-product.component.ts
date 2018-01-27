@@ -11,6 +11,7 @@ import { NavbarComponent } from '../../navbar/navbar.component';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { MdChipInputEvent, ENTER } from '@angular/material';
+import { GlobalHelper } from '../../_helpers/global.helper';
 
 // Used for Chip list
 const COMMA = 188;
@@ -51,13 +52,16 @@ export class VendorAddProductComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private productsService: ProductsService
+        private productsService: ProductsService,
+        private globalHelper: GlobalHelper
     ) { }
 
     ngOnInit() {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.userPhone = currentUser.phone;
         NavbarComponent.updateUserStatus.next(true);
+
+        this.globalHelper.VendorGlobalServiceCall();
     }
 
     add(event: MdChipInputEvent): void {

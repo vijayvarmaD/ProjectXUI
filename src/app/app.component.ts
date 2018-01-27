@@ -9,6 +9,4 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   showNewOrderAlert: Boolean = false;
 
-  constructor() {}
-
 }
