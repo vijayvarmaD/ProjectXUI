@@ -3,10 +3,9 @@ import { Observable } from 'rxjs';
 
 import { NavbarComponent } from '../navbar/navbar.component';
 
-@Injectable()
-
 export class AlertHelper {
-    constructor() {}
+    constructor(
+    ) {}
 
     alertNewOrder2Vendor(data) {
         const alertMsg = 'New order from ' + data.customerName.name;

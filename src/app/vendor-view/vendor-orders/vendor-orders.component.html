@@ -1,3 +1,44 @@
-<div class="centerDiv">
+<div class="jumbotron">
+    <div class="col-md-3 headerDivAdjust">
+        <h1 class="text-center headerAdjust">Current Orders</h1>
+        <hr class="my-2">
+    </div>
+    <div class="row">
+        <div class="col-1 button-dir-left" *ngIf="offset !== 2"><button md-mini-fab (click)="scrollLeft()" class="removeFocus"><i class="material-icons">keyboard_arrow_left</i></button></div>
+        <div class="col-1 button-dir-left" *ngIf="offset === 2 && total.length > 4"></div>        
+        <div class="col-10 container scrolling-wrapper testimonial-group">
+                <div class="haule">
+                    <div class="mad" *ngFor="let in of total" id="{{in.name}}">
+                        <div class="">
+                            <md-card class="example-card text-center">
+                                <md-card-header>
+                                    <md-card-title>
+                                        <strong>Card</strong>
+                                    </md-card-title>
+                                </md-card-header>
+                                <md-card-content>
+                                    {{in.name}}
+                                </md-card-content>
+                                <md-card-footer>
+                                    <div class="text-muted">
+                                        Don't have an account?
+                                        <a routerLink="/signup">Sign Up</a>
+                                    </div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                </md-card-footer>
+                            </md-card>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        <div class="col-1 button-dir-right" *ngIf="offset !== total.length - 1 && total.length > 4"><button md-mini-fab (click)="scrollRight()" class="removeFocus"><i class="material-icons">keyboard_arrow_right</i></button></div>
+        <div class="col-1 button-dir-right" *ngIf="offset === total.length - 1 && total.length > 4"></div>        
+    </div>
     
+    <!-- <button >Go to left</button>
+    <button >Go to right</button>
+    <button (click)="scroller()">H</button> -->
 </div>

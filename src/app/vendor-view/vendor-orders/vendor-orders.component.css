@@ -1,12 +1,77 @@
-.centerDiv {
+ .centerDiv {
     position: absolute; 
     left: 0; 
     right: 0; 
-    padding-top: 50px;
     margin-left: auto; 
     margin-right: auto; 
-    max-width: 500px;
-    display: flex;
+    /* max-width: 1000px; */
+    /* display: flex; */
     justify-content: center;
     align-items: center;
+  } 
+
+  .container-fluid {
+    padding-top: 10px;
   }
+
+  .example-card {
+    max-width: 250px;
+   
+  }
+
+  /* .headerDivAdjust {
+    margin-top: -15px !important;
+  } */
+
+  .headerAdjust {
+    font-size: 130%;
+    margin-top: -15%;
+  }
+
+  hr.my-2 {
+    max-width: 50%;
+  }
+
+  .mad {
+    min-width:200px; 
+    padding-left: 15px;
+    padding-right:15px;
+  }
+  .haule {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+
+/* The heart of the matter */
+.testimonial-group > .haule {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.testimonial-group > .haule > .mad {
+  display: inline-block;
+  float: none;
+}
+
+.scrolling-wrapper ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .button-dir-left {
+    position: relative; 
+    padding-top: 5%;
+    text-align: right;
+  }
+
+  .button-dir-right {
+    position: relative;  
+    padding-top: 5%;
+  }
+
+  .removeFocus:focus {
+    outline-width: 0;
+    border: 0;
+  }
+
+
+  
