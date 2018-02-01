@@ -13,6 +13,7 @@ export class ViewsService {
 
     url: any = 'https://eatup-api.herokuapp.com/api/views';
     url2: any = 'https://eatup-api.herokuapp.com/api/products/Customer/view';
+    url3: any = 'https://eatup-api.herokuapp.com/api/orders/Vendor/CurrentOrders';
 
     constructor (
         private http: Http,
@@ -33,6 +34,14 @@ export class ViewsService {
         const options = new RequestOptions({ headers: headers });
         // get products from api
         return this.http.get(this.url2, options).map((response: Response) => response.json());
+    }
+
+    getCurrentOrders(): Observable<any> {
+         // add authorization header with jwt token
+         const headers = new Headers({ 'Authorization': this.authenticationService.token, 'Content-Type': 'application/json' });
+         const options = new RequestOptions({ headers: headers });
+         // get products from api
+         return this.http.get(this.url3, options).map((response: Response) => response.json());
     }
 
     // vendorNewProd(): Observable<>

@@ -5,37 +5,48 @@
     </div>
     <div class="row">
         <div class="col-1 button-dir-left" *ngIf="offset !== 2"><button md-mini-fab (click)="scrollLeft()" class="removeFocus"><i class="material-icons">keyboard_arrow_left</i></button></div>
-        <div class="col-1 button-dir-left" *ngIf="offset === 2 && total.length > 4"></div>        
+        <div class="col-1 button-dir-left" *ngIf="offset === 2 && currentOrders.length > 6"></div>        
         <div class="col-10 container scrolling-wrapper testimonial-group">
                 <div class="haule">
-                    <div class="mad" *ngFor="let in of total" id="{{in.name}}">
+                    <div class="mad" *ngFor="let in of currentOrders" id="{{in._id}}">
                         <div class="">
                             <md-card class="example-card text-center">
                                 <md-card-header>
-                                    <md-card-title>
-                                        <strong>Card</strong>
-                                    </md-card-title>
-                                </md-card-header>
+                                    <div md-card-avatar class="customer-name-avatar"><i class="material-icons">account_circle</i></div>
+                                    <md-card-title class="customer-name">{{in.customerName}}</md-card-title>
+                                  </md-card-header>
                                 <md-card-content>
-                                    {{in.name}}
+                                  <div class="row">
+                                      <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 statusHeader" align="left"><font style="font-size:85%;">Payment</font></div>
+                                      <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 statusIcon" align="right">
+                                          <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </div>                                      
+                                  </div>
+                                  <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6" align="left"><font style="font-size:85%;">Order Prepared</font></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6" align="right">
+                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </div>                                      
+                                    </div>
+                                    <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6" align="left"><font style="font-size:85%;">Dispatched</font></div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6" align="right">
+                                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                            </div>                                      
+                                        </div>
                                 </md-card-content>
-                                <md-card-footer>
-                                    <div class="text-muted">
-                                        Don't have an account?
-                                        <a routerLink="/signup">Sign Up</a>
-                                    </div>
-                                    <div>
-                                        <br>
-                                    </div>
-                                </md-card-footer>
+                                <md-card-actions>
+                                        <button md-button md-raised-button class="md-small update-button"><font color="white">Update</font></button>
+                                        <button md-button md-raised-button class="md-small view-button"><font color="white">View</font></button>
+                                      </md-card-actions>
                             </md-card>
                         </div>
                     </div>
                 </div>
                 
             </div>
-        <div class="col-1 button-dir-right" *ngIf="offset !== total.length - 1 && total.length > 4"><button md-mini-fab (click)="scrollRight()" class="removeFocus"><i class="material-icons">keyboard_arrow_right</i></button></div>
-        <div class="col-1 button-dir-right" *ngIf="offset === total.length - 1 && total.length > 4"></div>        
+        <div class="col-1 button-dir-right" *ngIf="offset !== currentOrders.length - 1 && currentOrders.length > 6"><button md-mini-fab (click)="scrollRight()" class="removeFocus"><i class="material-icons">keyboard_arrow_right</i></button></div>
+        <div class="col-1 button-dir-right" *ngIf="offset === currentOrders.length - 1 && currentOrders.length > 6"></div>        
     </div>
     
     <!-- <button >Go to left</button>
